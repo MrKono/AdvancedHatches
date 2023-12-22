@@ -1,63 +1,42 @@
 package kono.ceu.advancedhatches;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
+import gregtech.GTInternalTags;
+import kono.ceu.advancedhatches.api.util.AHValues;
+import kono.ceu.advancedhatches.common.CommonProxy;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = Tags.MODID,
+        version = Tags.VERSION,
+        name = Tags.MODNAME,
+        acceptedMinecraftVersions = "[1.12, 1.12.2]",
+        dependencies = GTInternalTags.DEP_VERSION_STRING)
+
 public class AdvancedHatches {
 
-    public static final Logger LOGGER = LogManager.getLogger(Tags.MODID);
+    @SidedProxy(modId = AHValues.MOD_ID,
+            clientSide = "kono.ceu.advancedhatches.client.ClientProxy",
+            serverSide = "kono.ceu.advancedhatches.common.CommonProxy")
+    public static CommonProxy proxy;
 
-    @EventHandler
-    // preInit "Run before anything else. Read your config, create blocks, items, etc. (Remove if not needed)
+    @Mod.Instance
+    public static AdvancedHatches instance;
+
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        // register to the event bus so that we can listen to events
-        MinecraftForge.EVENT_BUS.register(this);
-        LOGGER.info("I am " + Tags.MODNAME + " + at version " + Tags.VERSION);
+        proxy.preInit(event);
     }
 
-    @SubscribeEvent
-    // Register recipes here (Remove if not needed)
-    public void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent e) {
+        proxy.init(e);
     }
 
-    @SubscribeEvent
-    // Register items here (Remove if not needed)
-    public void registerItems(RegistryEvent.Register<Item> event) {
-
-    }
-
-    @SubscribeEvent
-    // Register blocks here (Remove if not needed)
-    public void registerBlocks(RegistryEvent.Register<Block> event) {
-
-    }
-
-    @EventHandler
-    // load "Do your mod setup. Build whatever data structures you care about." (Remove if not needed)
-    public void init(FMLInitializationEvent event) {
-    }
-
-    @EventHandler
-    // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
+    @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-    }
-
-    @EventHandler
-    // register server commands in this event handler (Remove if not needed)
-    public void serverStarting(FMLServerStartingEvent event) {
+        proxy.postInit(event);
     }
 }
