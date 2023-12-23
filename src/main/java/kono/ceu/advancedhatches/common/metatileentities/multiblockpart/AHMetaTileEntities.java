@@ -6,7 +6,6 @@ import gregtech.api.GregTechAPI;
 import gregtech.api.metatileentity.SimpleMachineMetaTileEntity;
 import gregtech.api.recipes.RecipeMaps;
 import gregtech.client.renderer.texture.Textures;
-import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityAdvancedEnergyHatch;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.gcym.MetaTileEntityAdvancedParallelHatch;
 import net.minecraftforge.fml.common.Loader;

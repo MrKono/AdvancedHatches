@@ -1,15 +1,12 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu;
 
-import codechicken.lib.render.CCRenderState;
-import codechicken.lib.render.pipeline.IVertexOperation;
-import codechicken.lib.vec.Matrix4;
+
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import gregtech.client.utils.PipelineUtil;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.AHMetaTileEntities;
 import net.minecraft.creativetab.CreativeTabs;
