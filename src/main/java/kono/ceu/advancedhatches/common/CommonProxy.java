@@ -2,6 +2,7 @@ package kono.ceu.advancedhatches.common;
 
 import kono.ceu.advancedhatches.AdvancedHatchesLog;
 import kono.ceu.advancedhatches.api.util.AHValues;
+import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.AHMetaTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -41,6 +42,10 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        AdvancedHatchesLog.logger.info("Registering recipes...");
+        AdvancedHatchesLog.logger.info("Start: Registering Recipes");
+        AdvancedHatchesLog.logger.info("Finish: Registering Recipes");
+        AdvancedHatchesLog.logger.info("Start: Registering MetaTileEntities");
+        AHMetaTileEntities.init();
+        AdvancedHatchesLog.logger.info("Finish: Registering MetaTileEntities");
     }
 }
