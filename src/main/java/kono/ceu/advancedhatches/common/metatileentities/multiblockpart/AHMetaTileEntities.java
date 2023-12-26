@@ -13,7 +13,7 @@ import net.minecraftforge.fml.common.Loader;
 import static gregicality.multiblocks.api.utils.GCYMUtil.gcymId;
 import static gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities.TIERED_HATCH;
 import static gregtech.common.metatileentities.MetaTileEntities.*;
-import static kono.ceu.advancedhatches.api.util.AHValues.MOD_NAME_GSYM;
+import static kono.ceu.advancedhatches.api.util.AHValues.MODNAME_GCYM;
 import static kono.ceu.advancedhatches.api.util.AHValues.ahId;
 
 public class AHMetaTileEntities {
@@ -37,7 +37,7 @@ public class AHMetaTileEntities {
 
     public static void init(){
         partsCEu();
-        if (Loader.isModLoaded(MOD_NAME_GSYM)) {
+        if (Loader.isModLoaded(MODNAME_GCYM)) {
             partsGCYM();
         }
     }

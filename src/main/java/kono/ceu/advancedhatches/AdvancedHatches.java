@@ -17,7 +17,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class AdvancedHatches {
 
-    @SidedProxy(modId = AHValues.MOD_ID,
+    @SidedProxy(modId = AHValues.MODID,
             clientSide = "kono.ceu.advancedhatches.client.ClientProxy",
             serverSide = "kono.ceu.advancedhatches.common.CommonProxy")
     public static CommonProxy proxy;

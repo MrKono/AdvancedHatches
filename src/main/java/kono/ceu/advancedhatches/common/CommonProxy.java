@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.function.Function;
 
-@Mod.EventBusSubscriber(modid = AHValues.MOD_ID)
+@Mod.EventBusSubscriber(modid = AHValues.MODID)
 public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
     }
