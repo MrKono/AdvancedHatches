@@ -1,5 +1,26 @@
 ## GTCEu Parts
 # Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.ulv.name=ULV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.lv.name=LV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.mv.name=MV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.hv.name=HV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.uev.name=UEV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.uiv.name=UIV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.uxv.name=UXV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.opv.name=OpV 4A Energy Hatch
+advancedhatches.machine.energy_hatch.input_4a.max.name=MAX 4A Energy Hatch
+
+advancedhatches.machine.energy_hatch.input_16a.ulv.name=ULV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.lv.name=LV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.mv.name=MV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.hv.name=HV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.ev.name=EV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.uev.name=UEV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.uiv.name=UIV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.uxv.name=UXV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.opv.name=OpV 16A Energy Hatch
+advancedhatches.machine.energy_hatch.input_16a.max.name=MAX 16A Energy Hatch
+
 advancedhatches.machine.energy_hatch.input_64a.ulv.name=ULV 64A Energy Hatch
 advancedhatches.machine.energy_hatch.input_64a.lv.name=LV 64A Energy Hatch
 advancedhatches.machine.energy_hatch.input_64a.mv.name=MV 64A Energy Hatch
@@ -16,39 +37,44 @@ advancedhatches.machine.energy_hatch.input_64a.uxv.name=UXV 64A Energy Hatch
 advancedhatches.machine.energy_hatch.input_64a.opv.name=OpV 64A Energy Hatch
 advancedhatches.machine.energy_hatch.input_64a.max.name=MAX 64A Energy Hatch
 
-advancedhatches.machine.energy_hatch.input_256a.ulv.name=ULV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.lv.name=LV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.mv.name=MV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.hv.name=HV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.ev.name=EV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.iv.name=IV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.luv.name=LuV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.zpm.name=ZPM 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.uv.name=UV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.uhv.name=UHV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.uev.name=UEV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.uiv.name=UIV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.uxv.name=UXV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.opv.name=OpV 256A Energy Hatch
-advancedhatches.machine.energy_hatch.input_256a.max.name=MAX 256A Energy Hatch
-
-advancedhatches.machine.energy_hatch.input_1024a.ulv.name=ULV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.lv.name=LV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.mv.name=MV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.hv.name=HV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.ev.name=EV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.iv.name=IV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.luv.name=LuV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.zpm.name=ZPM 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.uv.name=UV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.uhv.name=UHV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.uev.name=UEV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.uiv.name=UIV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.uxv.name=UXV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.opv.name=OpV 1024A Energy Hatch
-advancedhatches.machine.energy_hatch.input_1024a.max.name=MAX 1024A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.ulv.name=ULV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.lv.name=LV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.mv.name=MV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.hv.name=HV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.ev.name=EV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.iv.name=IV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.luv.name=LuV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.zpm.name=ZPM 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.uv.name=UV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.uhv.name=UHV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.uev.name=UEV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.uiv.name=UIV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.uxv.name=UXV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.opv.name=OpV 128A Energy Hatch
+advancedhatches.machine.energy_hatch.input_128a.max.name=MAX 128A Energy Hatch
 
 # Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.ulv.name=ULV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.lv.name=LV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.mv.name=MV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.hv.name=HV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.uev.name=UEV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.uiv.name=UIV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.uxv.name=UXV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.opv.name=OpV 4A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_4a.max.name=MAX 4A Dynamo Hatch
+
+advancedhatches.machine.energy_hatch.output_16a.ulv.name=ULV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.lv.name=LV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.mv.name=MV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.hv.name=HV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.ev.name=EV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.uev.name=UEV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.uiv.name=UIV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.uxv.name=UXV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.opv.name=OpV 16A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_16a.max.name=MAX 16A Dynamo Hatch
+
 advancedhatches.machine.energy_hatch.output_64a.ulv.name=ULV 64A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_64a.lv.name=LV 64A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_64a.mv.name=MV 64A Dynamo Hatch
@@ -65,37 +91,21 @@ advancedhatches.machine.energy_hatch.output_64a.uxv.name=UXV 64A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_64a.opv.name=OpV 64A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_64a.max.name=MAX 64A Dynamo Hatch
 
-advancedhatches.machine.energy_hatch.output_256a.ulv.name=ULV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.lv.name=LV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.mv.name=MV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.hv.name=HV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.ev.name=EV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.iv.name=IV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.luv.name=LuV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.zpm.name=ZPM 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.uv.name=UV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.uhv.name=UHV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.uev.name=UEV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.uiv.name=UIV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.uxv.name=UXV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.opv.name=OpV 256A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_256a.max.name=MAX 256A Dynamo Hatch
-
-advancedhatches.machine.energy_hatch.output_1024a.ulv.name=ULV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.lv.name=LV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.mv.name=MV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.hv.name=HV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.ev.name=EV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.iv.name=IV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.luv.name=LuV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.zpm.name=ZPM 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.uv.name=UV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.uhv.name=UHV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.uev.name=UEV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.uiv.name=UIV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.uxv.name=UXV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.opv.name=OpV 1024A Dynamo Hatch
-advancedhatches.machine.energy_hatch.output_1024a.max.name=MAX 1024A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.ulv.name=ULV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.lv.name=LV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.mv.name=MV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.hv.name=HV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.ev.name=EV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.iv.name=IV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.luv.name=LuV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.zpm.name=ZPM 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.uv.name=UV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.uhv.name=UHV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.uev.name=UEV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.uiv.name=UIV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.uxv.name=UXV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.opv.name=OpV 128A Dynamo Hatch
+advancedhatches.machine.energy_hatch.output_128a.max.name=MAX 128A Dynamo Hatch
 
 ## GCYM Parts
 # Parallel Hatches

@@ -2,7 +2,7 @@ package kono.ceu.advancedhatches.common;
 
 import kono.ceu.advancedhatches.AdvancedHatchesLog;
 import kono.ceu.advancedhatches.api.util.AHValues;
-import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.AHMetaTileEntities;
+import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
