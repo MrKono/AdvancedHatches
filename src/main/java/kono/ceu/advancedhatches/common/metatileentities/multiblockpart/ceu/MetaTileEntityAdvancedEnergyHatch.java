@@ -1,6 +1,5 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu;
 
-
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
@@ -14,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 
+
 import java.util.List;
 
 public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch {
@@ -25,6 +25,7 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
     public MetaTileEntityAdvancedEnergyHatch(ResourceLocation metaTileEntityId, int tier, int amperage,
                                              boolean isExportHatch) {
         super(metaTileEntityId, tier, amperage, isExportHatch);
+
         this.isExportHatch = isExportHatch;
         this.amperage = amperage;
         if (isExportHatch) {
@@ -43,6 +44,12 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
     }
 
     @Override
+    public void update() {
+        super.update();
+        checkWeatherOrTerrainExplosion(getTier(), getTier() * 10, energyContainer);
+    }
+
+    @Override
     public MultiblockAbility<IEnergyContainer> getAbility() {
         return isExportHatch ? MultiblockAbility.OUTPUT_ENERGY : MultiblockAbility.INPUT_ENERGY;
     }
@@ -53,14 +60,8 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
     }
 
     @Override
-    public void update() {
-        super.update();
-        checkWeatherOrTerrainExplosion(getTier(), getTier() * 10, energyContainer);
-    }
-
-    @Override
     public void getSubItems(CreativeTabs creativeTab, NonNullList<ItemStack> subItems) {
-        if (this == AHMetaTileEntities.ENERGY_INPUT_64A[7]) {
+        if (this == AHMetaTileEntities.ENERGY_INPUT_64A[5]) {
             for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_4A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
@@ -97,15 +98,6 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
             for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_128A) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-        }
-    }
-
-    @Override
-    public void doExplosion(float explosionPower) {
-        if (getController() != null)
-            getController().explodeMultiblock(explosionPower);
-        else {
-            super.doExplosion(explosionPower);
         }
     }
 }
