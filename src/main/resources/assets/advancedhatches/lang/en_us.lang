@@ -107,6 +107,37 @@ advancedhatches.machine.energy_hatch.output_128a.uxv.name=UXV 128A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_128a.opv.name=OpV 128A Dynamo Hatch
 advancedhatches.machine.energy_hatch.output_128a.max.name=MAX 128A Dynamo Hatch
 
+# Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.ulv.name=Ultra Low Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.lv.name=Low Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.mv.name=Medium Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.hv.name=High Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.ev.name=Extreme Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.iv.name=Insane Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.luv.name=Ludicrous Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.zpm.name=ZPM Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.uv.name=Ultimate Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.uhv.name=Ultra High Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.uev.name=Ultra Excessive Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.uiv.name=Ultra Immense Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.uxv.name=Ultra Extreme Voltage Ultra-Hi-Amp Transformer
+advancedhatches.machine.transformer.ultra.hi_amp.opv.name=Overpowered Voltage Ultra-Hi-Amp Transformer
+
+advancedhatches.machine.transformer.ultra.power.ulv.name=Ultra Low Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.lv.name=Low Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.mv.name=Medium Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.hv.name=High Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.ev.name=Extreme Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.iv.name=Insane Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.luv.name=Ludicrous Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.zpm.name=ZPM Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.uv.name=Ultimate Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.uhv.name=Ultra High Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.uev.name=Ultra Excessive Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.uiv.name=Ultra Immense Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.uxv.name=Ultra Extreme Voltage Ultra-Power Transformer
+advancedhatches.machine.transformer.ultra.power.opv.name=Overpowered Voltage Ultra-Power Transformer
+
 ## GCYM Parts
 # Parallel Hatches
 advancedhatches.machine.advanced_parallel_hatch.uhv.name=Infinite Parallel Control Hatch
