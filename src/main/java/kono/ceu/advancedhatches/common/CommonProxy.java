@@ -3,6 +3,7 @@ package kono.ceu.advancedhatches.common;
 import kono.ceu.advancedhatches.AdvancedHatchesLog;
 import kono.ceu.advancedhatches.api.util.AHValues;
 import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
+import kono.ceu.advancedhatches.loaders.AHERecipeManager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.function.Function;
@@ -42,10 +44,18 @@ public class CommonProxy {
 
     @SubscribeEvent
     public static void registerRecipes(RegistryEvent.Register<IRecipe> event) {
-        AdvancedHatchesLog.logger.info("Start: Registering Recipes");
-        AdvancedHatchesLog.logger.info("Finish: Registering Recipes");
         AdvancedHatchesLog.logger.info("Start: Registering MetaTileEntities");
         AHMetaTileEntities.init();
         AdvancedHatchesLog.logger.info("Finish: Registering MetaTileEntities");
+        AdvancedHatchesLog.logger.info("Start: Registering Recipes");
+        AHERecipeManager.Load();
+        AdvancedHatchesLog.logger.info("Finish: Registering Recipes");
+    }
+
+    @SubscribeEvent(priority = EventPriority.LOW)
+    public static void registerRecipesLow(RegistryEvent.Register<IRecipe> event){
+        AdvancedHatchesLog.logger.info("Start: Registering Recipes");
+        //AHERecipeManager.postLoad();
+        AdvancedHatchesLog.logger.info("Finish: Registering Recipes");
     }
 }

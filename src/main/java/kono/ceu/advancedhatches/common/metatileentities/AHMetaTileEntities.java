@@ -5,6 +5,7 @@ import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityAdvancedEnergyHatch;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.gcym.MetaTileEntityAdvancedParallelHatch;
+import kono.ceu.advancedhatches.common.metatileentities.single.MetaTileEntityUltraTransformer;
 import net.minecraftforge.fml.common.Loader;
 
 import static gregicality.multiblocks.api.utils.GCYMUtil.gcymId;
@@ -15,7 +16,7 @@ import static kono.ceu.advancedhatches.api.util.AHValuesConfigurable.*;
 
 public class AHMetaTileEntities {
 
-    //CEu
+    //EnergyHatches 25050 - 25147
     //EnergyInput
     public static final MetaTileEntityAdvancedEnergyHatch[] ENERGY_INPUT_4A_LOW = new MetaTileEntityAdvancedEnergyHatch[4]; //ULV, LV, MV, HV
     public static final MetaTileEntityAdvancedEnergyHatch[] ENERGY_INPUT_4A_HIGH = new MetaTileEntityAdvancedEnergyHatch[5]; //UEV, UIV, UXV, OpV, MAX
@@ -32,8 +33,10 @@ public class AHMetaTileEntities {
     public static final MetaTileEntityAdvancedEnergyHatch[] ENERGY_OUTPUT_64A = new MetaTileEntityAdvancedEnergyHatch[GTValues.V.length];
     public static final MetaTileEntityAdvancedEnergyHatch[] ENERGY_OUTPUT_128A = new MetaTileEntityAdvancedEnergyHatch[GTValues.V.length];
 
-    //GCYM
-    //ParallelHatch
+    //Transformers 25006 -
+    public static final MetaTileEntityUltraTransformer[] ULTRA_HI_AMP_TRANSFORMER = new MetaTileEntityUltraTransformer[GTValues.V.length - 1];
+    public static final MetaTileEntityUltraTransformer[] ULTRA_POWER_TRANSFORMER = new MetaTileEntityUltraTransformer[GTValues.V.length - 1];
+    //ParallelHatch 25000- 25005
     public static MetaTileEntityAdvancedParallelHatch ADVANCED_PARALLEL_HATCH_1024;
     public static MetaTileEntityAdvancedParallelHatch ADVANCED_PARALLEL_HATCH_4096;
     public static MetaTileEntityAdvancedParallelHatch ADVANCED_PARALLEL_HATCH_16384;
@@ -51,7 +54,7 @@ public class AHMetaTileEntities {
 
     public static void partsCEu() {
         /*
-        Energy Hatches 25050 - 25
+        Energy Hatches 25050 - 25147
         4A In (ULV - HV, UEV - MAX) 25050 - 25053, 25054 - 25058
         4A Out (ULV - HV, UEV - MAX) 25059 - 25062, 25063 - 25067
         16A In (ULV - EV, UEV - MAX) 25068 - 25072, 25073 - 25077
@@ -61,9 +64,9 @@ public class AHMetaTileEntities {
         128A In 25118 - 25132
         128A Out 25133 - 25147
         */
-        int endPos = enabledHighTier ? GTValues.V.length :
+        int EnergyHatchEndPos = enabledHighTier ? GTValues.V.length :
                 GregTechAPI.isHighTier() ? GTValues.V.length : GTValues.UHV + 1;
-        for (int i = 0; i < endPos; i++) {
+        for (int i = 0; i < EnergyHatchEndPos; i++) {
             String in = "energy_hatch.input_";
             String out = "energy_hatch.output_";
             String voltageName = GTValues.VN[i].toLowerCase();
@@ -71,13 +74,13 @@ public class AHMetaTileEntities {
                 ENERGY_INPUT_64A[i] = registerMetaTileEntity(25088 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "64a." + voltageName), i, 64, false));
                 ENERGY_OUTPUT_64A[i] = registerMetaTileEntity(25103 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(out + "64a." + voltageName), i, 64, true));
                 ENERGY_INPUT_128A[i] = registerMetaTileEntity(25118 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "128a." + voltageName), i, 128, false));
-                ENERGY_OUTPUT_128A[i] = registerMetaTileEntity(25133 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "128a." + voltageName), i, 128, true));
+                ENERGY_OUTPUT_128A[i] = registerMetaTileEntity(25133 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(out + "128a." + voltageName), i, 128, true));
             }
             if (i >= GTValues.IV) {
                 ENERGY_INPUT_64A[i] = registerMetaTileEntity(25088 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "64a." + voltageName), i, 64, false));
                 ENERGY_OUTPUT_64A[i] = registerMetaTileEntity(25103 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(out + "64a." + voltageName), i, 64, true));
                 ENERGY_INPUT_128A[i] = registerMetaTileEntity(25118 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "128a." + voltageName), i, 128, false));
-                ENERGY_OUTPUT_128A[i] = registerMetaTileEntity(25133 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(in + "128a." + voltageName), i, 128, true));
+                ENERGY_OUTPUT_128A[i] = registerMetaTileEntity(25133 + i, new MetaTileEntityAdvancedEnergyHatch(ahId(out + "128a." + voltageName), i, 128, true));
             }
             if (enabledLowTier && i < GTValues.EV) {
                 //4A ULV - HV, 25050 - 25053
@@ -102,6 +105,19 @@ public class AHMetaTileEntities {
                 // 25083 - 25087
                 ENERGY_OUTPUT_16A_HIGH[j] = registerMetaTileEntity(25083 + j, new MetaTileEntityAdvancedEnergyHatch(ahId(out + "16a." + voltageName), i, 16, true));
             }
+        }
+
+        int TransformerEndPos = enabledHighTier ? ULTRA_HI_AMP_TRANSFORMER.length - 1 :
+                GregTechAPI.isHighTier() ? ULTRA_HI_AMP_TRANSFORMER.length - 1 : GTValues.UV;
+        for (int i = 0; i <= TransformerEndPos; i++) {
+            // + 64A <-> 128A 25006 - 25019
+            ULTRA_HI_AMP_TRANSFORMER[i] = registerMetaTileEntity(25006 + i, new MetaTileEntityUltraTransformer(
+                    ahId("transformer.ultra.hi_amp." + GTValues.VN[i].toLowerCase()), i, 1, 2, 4, 16, 64));
+            // + 128A <-> 512A 25020 - 25033
+            ULTRA_POWER_TRANSFORMER[i] = registerMetaTileEntity(25020 + i, new MetaTileEntityUltraTransformer(
+                    ahId("transformer.ultra.power." + GTValues.VN[i].toLowerCase()), i, 1, 2, 4, 16, 64, 128));
+
+
         }
     }
 

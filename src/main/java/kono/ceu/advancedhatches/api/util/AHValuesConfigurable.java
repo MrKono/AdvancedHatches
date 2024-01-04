@@ -1,7 +1,5 @@
 package kono.ceu.advancedhatches.api.util;
 
-
-import gregtech.api.GTValues;
 import kono.ceu.advancedhatches.AHConfig;
 
 public class AHValuesConfigurable {
