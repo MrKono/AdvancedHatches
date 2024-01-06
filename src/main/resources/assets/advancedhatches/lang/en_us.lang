@@ -138,6 +138,50 @@ advancedhatches.machine.transformer.ultra.power.uiv.name=Ultra Immense Voltage U
 advancedhatches.machine.transformer.ultra.power.uxv.name=Ultra Extreme Voltage Ultra-Power Transformer
 advancedhatches.machine.transformer.ultra.power.opv.name=Overpowered Voltage Ultra-Power Transformer
 
+# Converter
+advancedhatches.machine.energy_converter.hi_amp.ulv.32a.name=ULV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.lv.32a.name=LV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.mv.32a.name=MV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.hv.32a.name=HV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.ev.32a.name=EV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.iv.32a.name=IV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.luv.32a.name=LuV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.zpm.32a.name=ZPM Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.uv.32a.name=UV Energy Converter (32A)
+advancedhatches.machine.energy_converter.hi_amp.uhv.32a.name=UHV Energy Converter (32A)
+
+advancedhatches.machine.energy_converter.hi_amp.ulv.64a.name=ULV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.lv.64a.name=LV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.mv.64a.name=MV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.hv.64a.name=HV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.ev.64a.name=EV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.iv.64a.name=IV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.luv.64a.name=LuV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.zpm.64a.name=ZPM Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.uv.64a.name=UV Energy Converter (64A)
+advancedhatches.machine.energy_converter.hi_amp.uhv.64a.name=UHV Energy Converter (64A)
+
+advancedhatches.machine.energy_converter.hi_amp.ulv.128a.name=ULV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.lv.128a.name=LV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.mv.128a.name=MV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.hv.128a.name=HV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.ev.128a.name=EV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.iv.128a.name=IV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.luv.128a.name=LuV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.zpm.128a.name=ZPM Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.uv.128a.name=UV Energy Converter (128A)
+advancedhatches.machine.energy_converter.hi_amp.uhv.128a.name=UHV Energy Converter (128A)
+
+advancedhatches.machine.energy_converter.hi_amp.ulv.256a.name=ULV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.lv.256a.name=LV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.mv.256a.name=MV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.hv.256a.name=HV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.ev.256a.name=EV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.iv.256a.name=IV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.luv.256a.name=LuV Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.zpm.256a.name=ZPM Energy Converter (256A)
+advancedhatches.machine.energy_converter.hi_amp.uv.256a.name=UV Energy Converter (256A)
+
 ## GCYM Parts
 # Parallel Hatches
 advancedhatches.machine.advanced_parallel_hatch.uhv.name=Infinite Parallel Control Hatch

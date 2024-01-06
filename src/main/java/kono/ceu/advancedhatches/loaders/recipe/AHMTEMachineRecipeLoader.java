@@ -6,8 +6,7 @@ import gregtech.common.metatileentities.MetaTileEntities;
 
 
 import static gregtech.api.GTValues.*;
-import static gregtech.api.unification.material.Materials.Lubricant;
-import static gregtech.api.unification.material.Materials.SodiumPotassium;
+import static gregtech.api.unification.material.Materials.*;
 import static kono.ceu.advancedhatches.api.util.AHValuesConfigurable.enabledHighTier;
 import static kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities.*;
 import static gregtech.api.recipes.RecipeMaps.*;
@@ -309,6 +308,48 @@ public class AHMTEMachineRecipeLoader {
                     .fluidInputs(Lubricant.getFluid(32000))
                     .output(ULTRA_POWER_TRANSFORMER[i])
                     .EUt(VA[i]).duration(3200).buildAndRegister();
+        }
+    }
+
+    public static void Converter() {
+        for (int i = 0; i < HI_AMP_CONVERTER[0].length; i++) {
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HULL[i])
+                    .input(OrePrefix.cableGtHex, RedAlloy, 2)
+                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 8)
+                    .input(OrePrefix.circuit, tier(i), 1)
+                    .circuitMeta(0)
+                    .output(HI_AMP_CONVERTER[0][i])
+                    .EUt(VA[i]).duration(200).buildAndRegister();
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HULL[i])
+                    .input(OrePrefix.cableGtHex, RedAlloy, 4)
+                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 16)
+                    .input(OrePrefix.circuit, tier(i), 2)
+                    .circuitMeta(1)
+                    .output(HI_AMP_CONVERTER[1][i])
+                    .EUt(VA[i]).duration(2 * 200).buildAndRegister();
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HULL[i])
+                    .input(OrePrefix.cableGtHex, RedAlloy, 8)
+                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 32)
+                    .input(OrePrefix.circuit, tier(i), 4)
+                    .circuitMeta(2)
+                    .output(HI_AMP_CONVERTER[2][i])
+                    .EUt(VA[i]).duration(4 * 200).buildAndRegister();
+
+            if (i < HI_AMP_CONVERTER[0].length - 1) {
+                ASSEMBLER_RECIPES.recipeBuilder()
+                        .input(HULL[i])
+                        .input(OrePrefix.cableGtHex, RedAlloy, 16)
+                        .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 64)
+                        .input(OrePrefix.circuit, tier(i), 8)
+                        .circuitMeta(3)
+                        .output(HI_AMP_CONVERTER[3][i])
+                        .EUt(VA[i]).duration(8 * 200).buildAndRegister();
+            }
         }
     }
 }

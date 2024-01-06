@@ -26,5 +26,18 @@ dependencies {
     implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:4965457") // CEu 2.8.5
     implementation rfg.deobf("curse.maven:gregicality-multiblocks-564858:4910674") // GCYM 1.2.7
 
-    implementation("com.cleanroommc:modularui:2.4.1") { transitive = false }
+    if(project.rf_module) {
+        runtimeOnly (files("libs/EnderCore-1.12.2-0.5.78-core.jar"))
+
+        runtimeOnly "info.loenwind.autoconfig:AutoConfig:1.12.2-1.0.2" // AutoConfig 1.0.2
+        runtimeOnly "info.loenwind.autosave:AutoSave:1.12.2-1.0.11" // AutoSave 1.0.11
+        runtimeOnly rfg.deobf("curse.maven:endercore-231868:4671384") // EnderCore 0.5.78
+        runtimeOnly rfg.deobf("curse.maven:ender-io-base-297193:4674231") // EIO 5.3.72
+        runtimeOnly rfg.deobf("curse.maven:ender-io-endergy-304346:4674241") // EIOE 5.3.72
+        runtimeOnly rfg.deobf("curse.maven:ender-io-machines-297196:4674232") // EIOM 5.3.72
+        runtimeOnly rfg.deobf("curse.maven:ender-io-conduits-297197:4674233") // EIOC 5.3.72
+        runtimeOnly rfg.deobf("curse.maven:redstone-flux-270789:2920436")
+        runtimeOnly rfg.deobf("curse.maven:brandons-core-231382:3408276")
+        runtimeOnly rfg.deobf("curse.maven:draconic-evolution-223565:3431261")
+    }
 }

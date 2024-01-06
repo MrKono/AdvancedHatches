@@ -2,6 +2,7 @@ package kono.ceu.advancedhatches.loaders;
 
 import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.MetaItem;
+import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
 
@@ -93,6 +94,22 @@ public class AHIngredientHelper {
           case 7 -> VOLTAGE_COIL_ZPM;
           case 8, 9 -> VOLTAGE_COIL_UV;
             default ->  throw new IllegalStateException(Error(voltage));
+        };
+    }
+
+    public static Material tier(int voltage) {
+        return switch (voltage) {
+            case 0 -> MarkerMaterials.Tier.ULV;
+            case 1 -> MarkerMaterials.Tier.LV;
+            case 2 -> MarkerMaterials.Tier.MV;
+            case 3 -> MarkerMaterials.Tier.HV;
+            case 4 -> MarkerMaterials.Tier.EV;
+            case 5 -> MarkerMaterials.Tier.IV;
+            case 6 -> MarkerMaterials.Tier.LuV;
+            case 7 -> MarkerMaterials.Tier.ZPM;
+            case 8 -> MarkerMaterials.Tier.UV;
+            case 9 -> MarkerMaterials.Tier.UHV;
+            default -> throw new IllegalStateException("Out of Voltage: " + GTValues.VN[voltage]);
         };
     }
 }

@@ -1,5 +1,7 @@
 package kono.ceu.advancedhatches.loaders;
 
+import gregtech.common.ConfigHolder;
+
 import static kono.ceu.advancedhatches.api.util.AHValuesConfigurable.*;
 import static kono.ceu.advancedhatches.loaders.recipe.AHMTEMachineRecipeLoader.*;
 
@@ -12,5 +14,6 @@ public class AHERecipeManager {
         }
         EnergyHatches64and128A();
         Transformers();
+        if (ConfigHolder.compat.energy.enableFEConverters) Converter();
     }
 }
