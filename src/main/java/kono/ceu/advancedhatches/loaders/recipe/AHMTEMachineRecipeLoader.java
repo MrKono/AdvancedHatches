@@ -1,7 +1,10 @@
 package kono.ceu.advancedhatches.loaders.recipe;
 
 import gregtech.api.GTValues;
+import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
+import gregtech.api.unification.stack.UnificationEntry;
+import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
 
 
@@ -351,5 +354,189 @@ public class AHMTEMachineRecipeLoader {
                         .EUt(VA[i]).duration(8 * 200).buildAndRegister();
             }
         }
+    }
+
+    public static void RotorHolders() {
+        //Rotor Holder (UHV)
+        ModHandler.addShapedRecipe(true, "rotor_holder_uhv", ROTOR_HOLDERS_HI[0].getStackForm(),
+                "SGS", "GHG", "SGS",
+                'H', MetaTileEntities.HULL[UHV].getStackForm(),
+                'G', new UnificationEntry(OrePrefix.gear, Duranium),
+                'S', new UnificationEntry(OrePrefix.gearSmall, Neutronium));
+
+        //Enhanced Rotor Holder (IV)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[IV])
+                .input(OrePrefix.gear, HSSG, 8)
+                .input(OrePrefix.gearSmall, TungstenSteel, 8)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .fluidInputs(SodiumPotassium.getFluid(2000))
+                .output(POWER_ENHANCED_ROTOR_HOLDERS[0])
+                .EUt(VH[ZPM]).duration(1200).buildAndRegister();
+
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[IV])
+                .input(OrePrefix.gear, HSSG, 8)
+                .input(OrePrefix.gearSmall, TungstenSteel, 8)
+                .fluidInputs(Lubricant.getFluid(8000))
+                .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[0])
+                .EUt(VH[ZPM]).duration(1200).buildAndRegister();
+
+        //Enhanced Rotor Holder (LuV - UHV)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[LuV])
+                .input(OrePrefix.gear, Ruthenium, 8)
+                .input(OrePrefix.gearSmall, RhodiumPlatedPalladium, 8)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .fluidInputs(SodiumPotassium.getFluid(4000))
+                .output(POWER_ENHANCED_ROTOR_HOLDERS[1])
+                .stationResearch(b -> b
+                        .researchStack(POWER_ENHANCED_ROTOR_HOLDERS[0].getStackForm())
+                        .CWUt(16).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[ZPM])
+                .input(OrePrefix.gear, Trinium, 8)
+                .input(OrePrefix.gearSmall, NaquadahAlloy, 8)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .fluidInputs(SodiumPotassium.getFluid(8000))
+                .output(POWER_ENHANCED_ROTOR_HOLDERS[2])
+                .stationResearch(b -> b
+                        .researchStack(POWER_ENHANCED_ROTOR_HOLDERS[1].getStackForm())
+                        .CWUt(64).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UV])
+                .input(OrePrefix.gear, Tritanium, 8)
+                .input(OrePrefix.gearSmall, Darmstadtium, 8)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .fluidInputs(SodiumPotassium.getFluid(16000))
+                .output(POWER_ENHANCED_ROTOR_HOLDERS[3])
+                .stationResearch(b -> b
+                        .researchStack(POWER_ENHANCED_ROTOR_HOLDERS[2].getStackForm())
+                        .CWUt(128).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UHV])
+                .input(OrePrefix.gear, Duranium, 8)
+                .input(OrePrefix.gearSmall, Neutronium, 8)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .fluidInputs(SodiumPotassium.getFluid(32000))
+                .output(POWER_ENHANCED_ROTOR_HOLDERS[4])
+                .stationResearch(b -> b
+                        .researchStack(POWER_ENHANCED_ROTOR_HOLDERS[3].getStackForm())
+                        .CWUt(512).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[LuV])
+                .input(OrePrefix.gear, Ruthenium, 8)
+                .input(OrePrefix.gearSmall, RhodiumPlatedPalladium, 8)
+                .fluidInputs(Lubricant.getFluid(4000))
+                .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[1])
+                .stationResearch(b -> b
+                        .researchStack(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[0].getStackForm())
+                        .CWUt(16).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[ZPM])
+                .input(OrePrefix.gear, Trinium, 8)
+                .input(OrePrefix.gearSmall, NaquadahAlloy, 8)
+                .fluidInputs(Lubricant.getFluid(8000))
+                .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[2])
+                .stationResearch(b -> b
+                        .researchStack(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[1].getStackForm())
+                        .CWUt(64).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UV])
+                .input(OrePrefix.gear, Tritanium, 8)
+                .input(OrePrefix.gearSmall, Darmstadtium, 8)
+                .fluidInputs(Lubricant.getFluid(16000))
+                .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[3])
+                .stationResearch(b -> b
+                        .researchStack(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[2].getStackForm())
+                        .CWUt(128).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UHV])
+                .input(OrePrefix.gear, Duranium, 8)
+                .input(OrePrefix.gearSmall, Neutronium, 8)
+                .fluidInputs(Lubricant.getFluid(32000))
+                .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[4])
+                .stationResearch(b -> b
+                        .researchStack(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[3].getStackForm())
+                        .CWUt(512).EUt(VA[UV]))
+                .duration(1200).EUt(VA[UHV]).buildAndRegister();
+
+        //Advances Rotor Holder (IV)
+        ASSEMBLER_RECIPES.recipeBuilder()
+                .input(HULL[IV])
+                .input(OrePrefix.gear, HSSG, 16)
+                .input(OrePrefix.gearSmall, TungstenSteel, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .input(OrePrefix.wireGtDouble, lossless(IV), 8)
+                .fluidInputs(Lubricant.getFluid(8000))
+                .output(ADVANCED_ROTOR_HOLDERS[0])
+                .duration(2400).EUt(VA[UV]).buildAndRegister();
+
+        //Advanced Rotor Holder (LuV - UHV)
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[LuV])
+                .input(OrePrefix.gear, Ruthenium, 16)
+                .input(OrePrefix.gearSmall, RhodiumPlatedPalladium, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .input(OrePrefix.wireGtDouble, lossless(LuV), 8)
+                .fluidInputs(Lubricant.getFluid(16000))
+                .output(ADVANCED_ROTOR_HOLDERS[1])
+                .stationResearch(b -> b
+                        .researchStack(ADVANCED_ROTOR_HOLDERS[0].getStackForm())
+                        .CWUt(16).EUt(VA[UHV]))
+                .duration(2400).EUt(VA[UHV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[ZPM])
+                .input(OrePrefix.gear, Trinium, 16)
+                .input(OrePrefix.gearSmall, NaquadahAlloy, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .input(OrePrefix.wireGtDouble, lossless(ZPM), 8)
+                .fluidInputs(Lubricant.getFluid(32000))
+                .output(ADVANCED_ROTOR_HOLDERS[2])
+                .stationResearch(b -> b
+                        .researchStack(ADVANCED_ROTOR_HOLDERS[1].getStackForm())
+                        .CWUt(32).EUt(VA[UHV]))
+                .duration(2400).EUt(VA[UHV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UV])
+                .input(OrePrefix.gear, Tritanium, 16)
+                .input(OrePrefix.gearSmall, Darmstadtium, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .input(OrePrefix.wireGtDouble, lossless(UV), 8)
+                .fluidInputs(Lubricant.getFluid(64000))
+                .output(ADVANCED_ROTOR_HOLDERS[3])
+                .stationResearch(b -> b
+                        .researchStack(ADVANCED_ROTOR_HOLDERS[2].getStackForm())
+                        .CWUt(64).EUt(VA[UHV]))
+                .duration(2400).EUt(VA[UHV]).buildAndRegister();
+
+        ASSEMBLY_LINE_RECIPES.recipeBuilder()
+                .input(HULL[UHV])
+                .input(OrePrefix.gear, Duranium, 16)
+                .input(OrePrefix.gearSmall, Neutronium, 16)
+                .input(MetaItems.ULTRA_HIGH_POWER_INTEGRATED_CIRCUIT, 2)
+                .input(OrePrefix.wireGtDouble, lossless(UHV), 8)
+                .fluidInputs(Lubricant.getFluid(128000))
+                .output(ADVANCED_ROTOR_HOLDERS[4])
+                .stationResearch(b -> b
+                        .researchStack(ADVANCED_ROTOR_HOLDERS[3].getStackForm())
+                        .CWUt(128).EUt(VA[UHV]))
+                .duration(2400).EUt(VA[UHV]).buildAndRegister();
     }
 }

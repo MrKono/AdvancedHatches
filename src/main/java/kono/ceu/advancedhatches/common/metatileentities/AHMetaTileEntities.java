@@ -4,7 +4,11 @@ import gregicality.multiblocks.common.metatileentities.multiblockpart.MetaTileEn
 import gregtech.api.GTValues;
 import gregtech.api.GregTechAPI;
 import gregtech.common.metatileentities.converter.MetaTileEntityConverter;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityRotorHolder;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityAdvancedEnergyHatch;
+import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityAdvancedRotorHolder;
+import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityEfficiencyEnhancedRotorHolder;
+import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu.MetaTileEntityPowerEnhancedRotorHolder;
 import kono.ceu.advancedhatches.common.metatileentities.multiblockpart.gcym.MetaTileEntityAdvancedParallelHatch;
 import kono.ceu.advancedhatches.common.metatileentities.single.MetaTileEntityUltraTransformer;
 import net.minecraftforge.fml.common.Loader;
@@ -36,10 +40,16 @@ public class AHMetaTileEntities {
 
     //Transformers 25006 - 25033
     public static final MetaTileEntityUltraTransformer[] ULTRA_HI_AMP_TRANSFORMER = new MetaTileEntityUltraTransformer[GTValues.V.length - 1];
+    public static final MetaTileEntityUltraTransformer[] ULTRA_POWER_TRANSFORMER = new MetaTileEntityUltraTransformer[GTValues.V.length - 1];
 
     //Converter
     public static final MetaTileEntityConverter[][] HI_AMP_CONVERTER = new MetaTileEntityConverter[4][GTValues.UHV + 1];
-    public static final MetaTileEntityUltraTransformer[] ULTRA_POWER_TRANSFORMER = new MetaTileEntityUltraTransformer[GTValues.V.length - 1];
+
+    // Rotor Holder
+    public static final MetaTileEntityRotorHolder[] ROTOR_HOLDERS_HI = new MetaTileEntityRotorHolder[6]; // UHV - MAX
+    public static final MetaTileEntityPowerEnhancedRotorHolder[] POWER_ENHANCED_ROTOR_HOLDERS = new MetaTileEntityPowerEnhancedRotorHolder[10]; //IV+
+    public static final MetaTileEntityEfficiencyEnhancedRotorHolder[] EFFICIENCY_ENHANCED_ROTOR_HOLDERS = new MetaTileEntityEfficiencyEnhancedRotorHolder[10]; //IV+
+    public static final MetaTileEntityAdvancedRotorHolder[] ADVANCED_ROTOR_HOLDERS = new MetaTileEntityAdvancedRotorHolder[10]; //IV+
     //ParallelHatch 25000- 25005
     public static MetaTileEntityAdvancedParallelHatch ADVANCED_PARALLEL_HATCH_1024;
     public static MetaTileEntityAdvancedParallelHatch ADVANCED_PARALLEL_HATCH_4096;
@@ -51,19 +61,23 @@ public class AHMetaTileEntities {
     public static void init(){
         /*
         MTE ID
-        25000 - 25005 UDV+ Parallel Hatch
+        25000 - 25005 UHV+ Parallel Hatch
         25006 - 25033 Transformers
-        25033 - 25049 Free
+        25034 - 25039 Rotor Holder (UHV+)
+        25040 - 25049 Free
         25050 - 25147 Energy Hatches
         25148 - 25186 Converter
         25187 - 25207 reserved for UHV 256A Converter & UEV+ Converter
+        25208 - 25216 Power Enhanced Rotor Holders
+        25217 - 25225 Efficiency Enhanced Rotor Holders
+        25226 - 25234 Advanced Rotor Holders
          */
         partsCEu();
+        machine();
         if (Loader.isModLoaded(MODNAME_GCYM)) {
             partsGCYM();
         }
     }
-
 
     public static void partsCEu() {
         int EnergyHatchEndPos = enabledHighTier ? GTValues.V.length :
@@ -101,6 +115,27 @@ public class AHMetaTileEntities {
             }
         }
 
+        ROTOR_HOLDERS_HI[0] = registerMetaTileEntity(25034, new MetaTileEntityRotorHolder(ahId("rotor_holder.uhv"), GTValues.UHV));
+        if (GregTechAPI.isHighTier()) {
+            for (int i = 1; i < ROTOR_HOLDERS_HI.length; i++) {
+                ROTOR_HOLDERS_HI[i] = registerMetaTileEntity(25034 + i, new MetaTileEntityRotorHolder(ahId("rotor_holder." + GTValues.VN[i].toLowerCase()), 9 + i));
+            }
+        }
+
+        int rotorEndPos = GregTechAPI.isHighTier() ? POWER_ENHANCED_ROTOR_HOLDERS.length - 1 : GTValues.UEV - GTValues.IV;
+        for (int i = 0; i < rotorEndPos; i ++) {
+            int v = i + GTValues.IV;
+            String voltage = GTValues.VN[v].toLowerCase();
+
+            POWER_ENHANCED_ROTOR_HOLDERS[i] = registerMetaTileEntity(25208 + i, new MetaTileEntityPowerEnhancedRotorHolder(ahId("rotor_holder.enhanced.power." + voltage), v));
+            EFFICIENCY_ENHANCED_ROTOR_HOLDERS[i] = registerMetaTileEntity(25217 + i, new MetaTileEntityEfficiencyEnhancedRotorHolder(ahId("rotor_holder.enhanced.efficiency." + voltage), v));
+            ADVANCED_ROTOR_HOLDERS[i] = registerMetaTileEntity(25226 + i, new MetaTileEntityAdvancedRotorHolder(ahId("rotor_holder.advanced." + voltage), v));
+        }
+    }
+
+    public static void machine() {
+
+        // Transformer
         int TransformerEndPos = enabledHighTier ? ULTRA_HI_AMP_TRANSFORMER.length - 1 :
                 GregTechAPI.isHighTier() ? ULTRA_HI_AMP_TRANSFORMER.length - 1 : GTValues.UV;
         for (int i = 0; i <= TransformerEndPos; i++) {
@@ -110,6 +145,7 @@ public class AHMetaTileEntities {
                     ahId("transformer.ultra.power." + GTValues.VN[i].toLowerCase()), i, 1, 2, 4, 16, 64, 128));
         }
 
+        // Converter
         int[] amp = {32, 64, 128};
         for (int i = 0; i < HI_AMP_CONVERTER[0].length; i++) {
             for (int j = 0; j < 3; j++) {
@@ -121,8 +157,8 @@ public class AHMetaTileEntities {
                 HI_AMP_CONVERTER[3][i] = registerMetaTileEntity(25148 + 3 + i * 4, new MetaTileEntityConverter(ahId(id), i, 256));
             }
         }
-    }
 
+    }
 
     public static void partsGCYM() {
         if (!GregTechAPI.isHighTier() && enabledHighVoltageUnit) {

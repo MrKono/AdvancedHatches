@@ -112,4 +112,20 @@ public class AHIngredientHelper {
             default -> throw new IllegalStateException("Out of Voltage: " + GTValues.VN[voltage]);
         };
     }
+
+    public static Material lossless(int voltage) {
+        return switch (voltage) {
+            case 0 -> Materials.RedAlloy;
+            case 1 -> Materials.ManganesePhosphide;
+            case 2 -> Materials.MagnesiumDiboride;
+            case 3 -> Materials.MercuryBariumCalciumCuprate;
+            case 4 -> Materials.UraniumTriplatinum;
+            case 5 -> Materials.SamariumIronArsenicOxide;
+            case 6 -> Materials.IndiumTinBariumTitaniumCuprate;
+            case 7 -> Materials.UraniumRhodiumDinaquadide;
+            case 8 -> Materials.EnrichedNaquadahTriniumEuropiumDuranide;
+            case 9 -> Materials.RutheniumTriniumAmericiumNeutronate;
+            default -> throw new IllegalStateException(Error(voltage));
+        };
+    }
 }

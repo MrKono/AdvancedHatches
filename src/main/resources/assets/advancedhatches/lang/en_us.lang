@@ -182,6 +182,44 @@ advancedhatches.machine.energy_converter.hi_amp.luv.256a.name=LuV Energy Convert
 advancedhatches.machine.energy_converter.hi_amp.zpm.256a.name=ZPM Energy Converter (256A)
 advancedhatches.machine.energy_converter.hi_amp.uv.256a.name=UV Energy Converter (256A)
 
+# Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.iv.name=IV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.luv.name=LuV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.zpm.name=ZPM Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.uv.name=UV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.uhv.name=UHV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.uev.name=UEV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.uiv.name=UIV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.uxv.name=UXV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.opv.name=OpV Power-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.power.max.name=MAX Power-Enhanced Rotor Holder
+
+advancedhatches.machine.rotor_holder.enhanced.efficiency.iv.name=IV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.luv.name=LuV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.zpm.name=ZPM Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.uv.name=UV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.uhv.name=UHV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.uev.name=UEV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.uiv.name=UIV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.uxv.name=UXV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.opv.name=OpV Efficiency-Enhanced Rotor Holder
+advancedhatches.machine.rotor_holder.enhanced.efficiency.max.name=MAX Efficiency-Enhanced Rotor Holder
+
+advancedhatches.machine.rotor_holder.advanced.iv.name=IV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.luv.name=LuV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.zpm.name=ZPM Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.uv.name=UV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.uhv.name=UHV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.uev.name=UEV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.uiv.name=UIV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.uxv.name=UXV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.opv.name=OpV Advanced Rotor Holder
+advancedhatches.machine.rotor_holder.advanced.max.name=MAX Advanced Rotor Holder
+
+advancedhatches.machine.rotor_holder.power.tooltip=Power §b+%s%%
+advancedhatches.machine.rotor_holder.efficiency.tooltip=Efficiency §b+%s%%
+advancedhatches.machine.rotor_holder.speed.tooltip=Max Speed §c+%s%%
+
 ## GCYM Parts
 # Parallel Hatches
 advancedhatches.machine.advanced_parallel_hatch.uhv.name=Infinite Parallel Control Hatch
