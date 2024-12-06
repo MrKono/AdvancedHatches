@@ -22,22 +22,23 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    implementation rfg.deobf("curse.maven:codechicken-lib-1-8-242818:2779848") // CCL 3.2.3.358
-    implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:4965457") // CEu 2.8.5
-    implementation rfg.deobf("curse.maven:gregicality-multiblocks-564858:4910674") // GCYM 1.2.7
+
+    api rfg.deobf("codechicken:codechickenlib:3.2.3.358") // CCL 3.2.3.358
+    devOnlyNonPublishable(rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:5519022")) // CEu 2.8.10
+    devOnlyNonPublishable(rfg.deobf("curse.maven:gregicality-multiblocks-564858:5619513")) // GCYM 1.2.11
 
     if(project.rf_module) {
-        runtimeOnly (files("libs/EnderCore-1.12.2-0.5.78-core.jar"))
-
-        runtimeOnly "info.loenwind.autoconfig:AutoConfig:1.12.2-1.0.2" // AutoConfig 1.0.2
-        runtimeOnly "info.loenwind.autosave:AutoSave:1.12.2-1.0.11" // AutoSave 1.0.11
-        runtimeOnly rfg.deobf("curse.maven:endercore-231868:4671384") // EnderCore 0.5.78
-        runtimeOnly rfg.deobf("curse.maven:ender-io-base-297193:4674231") // EIO 5.3.72
-        runtimeOnly rfg.deobf("curse.maven:ender-io-endergy-304346:4674241") // EIOE 5.3.72
-        runtimeOnly rfg.deobf("curse.maven:ender-io-machines-297196:4674232") // EIOM 5.3.72
-        runtimeOnly rfg.deobf("curse.maven:ender-io-conduits-297197:4674233") // EIOC 5.3.72
-        runtimeOnly rfg.deobf("curse.maven:redstone-flux-270789:2920436")
-        runtimeOnly rfg.deobf("curse.maven:brandons-core-231382:3408276")
-        runtimeOnly rfg.deobf("curse.maven:draconic-evolution-223565:3431261")
+        runtimeOnlyNonPublishable "info.loenwind.autoconfig:AutoConfig:1.12.2-1.0.2" // AutoConfig 1.0.2
+        runtimeOnlyNonPublishable "info.loenwind.autosave:AutoSave:1.12.2-1.0.11" // AutoSave 1.0.11
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:endercore-231868:4671384") // EnderCore 0.5.78
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:ender-io-base-297193:4674231") // EIO 5.3.72
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:ender-io-endergy-304346:4674241") // EIOE 5.3.72
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:ender-io-machines-297196:4674232") // EIOM 5.3.72
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:ender-io-conduits-297197:4674233") // EIOC 5.3.72
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:baubles-227083:2518667")
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:redstone-flux-270789:2920436")
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:brandons-core-231382:3408276")
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:draconic-evolution-223565:3431261")
+        runtimeOnlyNonPublishable rfg.deobf("curse.maven:draconicadditions-314515:3514704")
     }
 }
