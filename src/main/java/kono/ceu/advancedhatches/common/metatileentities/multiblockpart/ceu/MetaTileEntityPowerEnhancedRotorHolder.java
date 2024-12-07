@@ -1,5 +1,17 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu;
 
+import java.util.List;
+
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+
+import org.jetbrains.annotations.Nullable;
+
 import gregtech.api.capability.GregtechDataCodes;
 import gregtech.api.capability.impl.NotifiableItemStackHandler;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -8,16 +20,6 @@ import gregtech.client.utils.TooltipHelper;
 import gregtech.common.items.behaviors.TurbineRotorBehavior;
 import gregtech.common.metatileentities.multi.electric.generator.MetaTileEntityLargeTurbine;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityRotorHolder;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class MetaTileEntityPowerEnhancedRotorHolder extends MetaTileEntityRotorHolder {
 
@@ -62,7 +64,7 @@ public class MetaTileEntityPowerEnhancedRotorHolder extends MetaTileEntityRotorH
                 }
             }
 
-            MetaTileEntityLargeTurbine controller = (MetaTileEntityLargeTurbine)this.getController();
+            MetaTileEntityLargeTurbine controller = (MetaTileEntityLargeTurbine) this.getController();
             if (controller != null && controller.isActive()) {
                 if (this.currentSpeed < this.maxSpeed) {
                     this.setCurrentSpeed(this.currentSpeed + 1);
@@ -90,8 +92,8 @@ public class MetaTileEntityPowerEnhancedRotorHolder extends MetaTileEntityRotorH
         boolean permuteXZ = facing.getAxis() == EnumFacing.Axis.Z;
         BlockPos centerPos = this.getPos().offset(facing);
 
-        for(int x = -1; x < 2; ++x) {
-            for(int y = -1; y < 2; ++y) {
+        for (int x = -1; x < 2; ++x) {
+            for (int y = -1; y < 2; ++y) {
                 BlockPos blockPos = centerPos.add(permuteXZ ? x : 0, y, permuteXZ ? 0 : x);
                 IBlockState blockState = this.getWorld().getBlockState(blockPos);
                 if (!blockState.getBlock().isAir(blockState, this.getWorld(), blockPos)) {
@@ -109,7 +111,6 @@ public class MetaTileEntityPowerEnhancedRotorHolder extends MetaTileEntityRotorH
             this.setRotorSpinning(this.currentSpeed > 0);
             this.markDirty();
         }
-
     }
 
     void setRotorSpinning(boolean spinning) {
@@ -119,7 +120,6 @@ public class MetaTileEntityPowerEnhancedRotorHolder extends MetaTileEntityRotorH
                 buf.writeBoolean(this.isRotorSpinning);
             });
         }
-
     }
 
     @Override

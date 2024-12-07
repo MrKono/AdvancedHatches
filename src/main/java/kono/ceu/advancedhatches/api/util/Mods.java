@@ -1,11 +1,11 @@
 package kono.ceu.advancedhatches.api.util;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-import kono.ceu.advancedhatches.Tags;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextFormatting;
@@ -48,6 +48,7 @@ public enum Mods {
     };
 
     public static class Names {
+
         public static final String GREGICALITY_MULTIBLOCKS = "gcym";
         public static final String GREGTECH = "gregtech";
         public static final String MIXINBOOTER = "mixinbooter";

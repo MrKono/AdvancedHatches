@@ -1,12 +1,12 @@
 package kono.ceu.advancedhatches.loaders;
 
+import static gregtech.common.items.MetaItems.*;
+
 import gregtech.api.GTValues;
 import gregtech.api.items.metaitem.MetaItem;
 import gregtech.api.unification.material.MarkerMaterials;
 import gregtech.api.unification.material.Material;
 import gregtech.api.unification.material.Materials;
-
-import static gregtech.common.items.MetaItems.*;
 
 public class AHIngredientHelper {
 
@@ -70,7 +70,7 @@ public class AHIngredientHelper {
 
     public static MetaItem<?>.MetaValueItem Pump(int voltage) {
         return switch (voltage) {
-            case 0, 1 ->ELECTRIC_PUMP_LV;
+            case 0, 1 -> ELECTRIC_PUMP_LV;
             case 2 -> ELECTRIC_PUMP_MV;
             case 3 -> ELECTRIC_PUMP_HV;
             case 4 -> ELECTRIC_PUMP_EV;
@@ -84,16 +84,16 @@ public class AHIngredientHelper {
 
     public static MetaItem<?>.MetaValueItem VoltageCoil(int voltage) {
         return switch (voltage) {
-          case 0 -> VOLTAGE_COIL_ULV;
-          case 1 -> VOLTAGE_COIL_LV;
-          case 2 -> VOLTAGE_COIL_MV;
-          case 3 -> VOLTAGE_COIL_HV;
-          case 4 -> VOLTAGE_COIL_EV;
-          case 5 -> VOLTAGE_COIL_IV;
-          case 6 -> VOLTAGE_COIL_LuV;
-          case 7 -> VOLTAGE_COIL_ZPM;
-          case 8, 9 -> VOLTAGE_COIL_UV;
-            default ->  throw new IllegalStateException(Error(voltage));
+            case 0 -> VOLTAGE_COIL_ULV;
+            case 1 -> VOLTAGE_COIL_LV;
+            case 2 -> VOLTAGE_COIL_MV;
+            case 3 -> VOLTAGE_COIL_HV;
+            case 4 -> VOLTAGE_COIL_EV;
+            case 5 -> VOLTAGE_COIL_IV;
+            case 6 -> VOLTAGE_COIL_LuV;
+            case 7 -> VOLTAGE_COIL_ZPM;
+            case 8, 9 -> VOLTAGE_COIL_UV;
+            default -> throw new IllegalStateException(Error(voltage));
         };
     }
 

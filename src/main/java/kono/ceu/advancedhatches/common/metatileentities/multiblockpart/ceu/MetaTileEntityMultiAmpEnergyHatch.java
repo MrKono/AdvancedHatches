@@ -1,5 +1,12 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu;
 
+import java.util.List;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+
 import gregtech.api.GTValues;
 import gregtech.api.capability.IEnergyContainer;
 import gregtech.api.capability.impl.EnergyContainerHandler;
@@ -7,14 +14,8 @@ import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityEnergyHatch;
+
 import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-
-
-import java.util.List;
 
 public class MetaTileEntityMultiAmpEnergyHatch extends MetaTileEntityEnergyHatch {
 

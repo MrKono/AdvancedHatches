@@ -1,18 +1,10 @@
 package kono.ceu.advancedhatches.common.metatileentities.single;
 
-import codechicken.lib.raytracer.CuboidRayTraceResult;
-import codechicken.lib.render.CCRenderState;
-import codechicken.lib.render.pipeline.IVertexOperation;
-import codechicken.lib.vec.Matrix4;
-import gregtech.api.GTValues;
-import gregtech.api.capability.impl.EnergyContainerHandler;
-import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.client.renderer.texture.Textures;
-import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
-import gregtech.client.utils.PipelineUtil;
-import gregtech.common.metatileentities.electric.MetaTileEntityTransformer;
-import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
+import static gregtech.api.capability.GregtechDataCodes.AMP_INDEX;
+import static gregtech.api.capability.GregtechDataCodes.SYNC_TILE_MODE;
+
+import java.util.Arrays;
+
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -24,10 +16,21 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TextComponentTranslation;
 
-import java.util.Arrays;
+import gregtech.api.GTValues;
+import gregtech.api.capability.impl.EnergyContainerHandler;
+import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import gregtech.client.renderer.texture.Textures;
+import gregtech.client.renderer.texture.cube.SimpleOverlayRenderer;
+import gregtech.client.utils.PipelineUtil;
+import gregtech.common.metatileentities.electric.MetaTileEntityTransformer;
 
-import static gregtech.api.capability.GregtechDataCodes.AMP_INDEX;
-import static gregtech.api.capability.GregtechDataCodes.SYNC_TILE_MODE;
+import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
+
+import codechicken.lib.raytracer.CuboidRayTraceResult;
+import codechicken.lib.render.CCRenderState;
+import codechicken.lib.render.pipeline.IVertexOperation;
+import codechicken.lib.vec.Matrix4;
 
 public class MetaTileEntityAdvancedTransformer extends MetaTileEntityTransformer {
 
@@ -197,7 +200,8 @@ public class MetaTileEntityAdvancedTransformer extends MetaTileEntityTransformer
     }
 
     @Override
-    public boolean onSoftMalletClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing, CuboidRayTraceResult hitResult) {
+    public boolean onSoftMalletClick(EntityPlayer playerIn, EnumHand hand, EnumFacing facing,
+                                     CuboidRayTraceResult hitResult) {
         if (getWorld().isRemote) {
             scheduleRenderUpdate();
             return true;

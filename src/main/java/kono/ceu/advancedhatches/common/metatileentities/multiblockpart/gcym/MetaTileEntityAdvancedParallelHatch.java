@@ -1,8 +1,15 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.gcym;
 
-import gregicality.multiblocks.api.capability.IParallelHatch;
-import gregicality.multiblocks.api.metatileentity.GCYMMultiblockAbility;
-import gregicality.multiblocks.common.metatileentities.multiblockpart.MetaTileEntityParallelHatch;
+import java.util.List;
+import java.util.function.Function;
+import java.util.function.IntSupplier;
+
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+
+import org.jetbrains.annotations.NotNull;
+
 import gregtech.api.GTValues;
 import gregtech.api.gui.GuiTextures;
 import gregtech.api.gui.ModularUI;
@@ -10,14 +17,10 @@ import gregtech.api.gui.widgets.*;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.List;
-import java.util.function.Function;
-import java.util.function.IntSupplier;
+import gregicality.multiblocks.api.capability.IParallelHatch;
+import gregicality.multiblocks.api.metatileentity.GCYMMultiblockAbility;
+import gregicality.multiblocks.common.metatileentities.multiblockpart.MetaTileEntityParallelHatch;
 
 public class MetaTileEntityAdvancedParallelHatch extends MetaTileEntityParallelHatch {
 
@@ -109,6 +112,4 @@ public class MetaTileEntityAdvancedParallelHatch extends MetaTileEntityParallelH
     public void registerAbilities(@NotNull List<IParallelHatch> list) {
         list.add(this);
     }
-
-
 }

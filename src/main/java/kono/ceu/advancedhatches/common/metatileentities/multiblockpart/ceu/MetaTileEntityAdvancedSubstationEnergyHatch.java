@@ -1,18 +1,20 @@
 package kono.ceu.advancedhatches.common.metatileentities.multiblockpart.ceu;
 
-import gregtech.api.metatileentity.MetaTileEntity;
-import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
-import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntitySubstationEnergyHatch;
-import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 
+import gregtech.api.metatileentity.MetaTileEntity;
+import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntitySubstationEnergyHatch;
+
+import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
+
 public class MetaTileEntityAdvancedSubstationEnergyHatch extends MetaTileEntitySubstationEnergyHatch {
 
     public MetaTileEntityAdvancedSubstationEnergyHatch(ResourceLocation metaTileEntityId, int tier, int amperage,
-                                               boolean isExportHatch) {
+                                                       boolean isExportHatch) {
         super(metaTileEntityId, tier, amperage, isExportHatch);
     }
 

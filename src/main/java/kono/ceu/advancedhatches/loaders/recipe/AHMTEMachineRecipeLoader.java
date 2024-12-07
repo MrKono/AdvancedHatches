@@ -1,19 +1,18 @@
 package kono.ceu.advancedhatches.loaders.recipe;
 
+import static gregtech.api.GTValues.*;
+import static gregtech.api.recipes.RecipeMaps.*;
+import static gregtech.api.unification.material.Materials.*;
+import static gregtech.common.metatileentities.MetaTileEntities.*;
+import static kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities.*;
+import static kono.ceu.advancedhatches.loaders.AHIngredientHelper.*;
+
 import gregtech.api.GTValues;
 import gregtech.api.recipes.ModHandler;
 import gregtech.api.unification.ore.OrePrefix;
 import gregtech.api.unification.stack.UnificationEntry;
 import gregtech.common.items.MetaItems;
 import gregtech.common.metatileentities.MetaTileEntities;
-
-
-import static gregtech.api.GTValues.*;
-import static gregtech.api.unification.material.Materials.*;
-import static kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities.*;
-import static gregtech.api.recipes.RecipeMaps.*;
-import static gregtech.common.metatileentities.MetaTileEntities.*;
-import static kono.ceu.advancedhatches.loaders.AHIngredientHelper.*;
 
 public class AHMTEMachineRecipeLoader {
 
@@ -37,7 +36,6 @@ public class AHMTEMachineRecipeLoader {
                     .input(OrePrefix.plate, voltageMaterial(i), 4)
                     .output(ENERGY_INPUT_16A_LOW[i])
                     .EUt(VA[EV]).duration(10 * sec).buildAndRegister();
-
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(ENERGY_OUTPUT_HATCH[i])
@@ -63,7 +61,7 @@ public class AHMTEMachineRecipeLoader {
                     .input(OrePrefix.plate, voltageMaterial(i), 6)
                     .output(ENERGY_INPUT_64A_LOW[i])
                     .EUt(VA[EV]).duration(20 * sec).buildAndRegister();
-            
+
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(HI_AMP_TRANSFORMER[i])
                     .input(ENERGY_OUTPUT_16A_LOW[i])
@@ -73,7 +71,7 @@ public class AHMTEMachineRecipeLoader {
                     .EUt(VA[EV]).duration(20 * sec).buildAndRegister();
         }
         // 256A and 1024A: ULV-IV
-        for (int i= 0; i < 6; i++) {
+        for (int i = 0; i < 6; i++) {
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(HI_POWER_TRANSFORMER[i])
                     .input(i == 5 ? ENERGY_INPUT_64A[0] : ENERGY_INPUT_64A_LOW[i])
@@ -111,13 +109,13 @@ public class AHMTEMachineRecipeLoader {
     public static void EnergyHatches() {
         // 64A: IV-UHV
         for (int i = IV; i < UHV + 1; i++) {
-            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase()+ "_64a_energy_hatch",
+            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase() + "_64a_energy_hatch",
                     ENERGY_INPUT_64A[i - 5].getStackForm(), SUBSTATION_ENERGY_INPUT_HATCH[i - 5].getStackForm());
-            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase()+ "_64a_dynamo_hatch",
+            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase() + "_64a_dynamo_hatch",
                     ENERGY_OUTPUT_64A[i - 5].getStackForm(), SUBSTATION_ENERGY_OUTPUT_HATCH[i - 5].getStackForm());
-            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase()+ "_64a_substation_energy_hatch",
+            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase() + "_64a_substation_energy_hatch",
                     SUBSTATION_ENERGY_INPUT_HATCH[i - 5].getStackForm(), ENERGY_INPUT_64A[i - 5].getStackForm());
-            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase()+ "_64a_substation_dynamo_hatch",
+            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase() + "_64a_substation_dynamo_hatch",
                     SUBSTATION_ENERGY_OUTPUT_HATCH[i - 5].getStackForm(), ENERGY_OUTPUT_64A[i - 5].getStackForm());
         }
 
@@ -184,14 +182,14 @@ public class AHMTEMachineRecipeLoader {
     }
 
     public static void RotorHolders() {
-        //Rotor Holder (UHV)
+        // Rotor Holder (UHV)
         ModHandler.addShapedRecipe(true, "rotor_holder_uhv", ROTOR_HOLDERS_HI[0].getStackForm(),
                 "SGS", "GHG", "SGS",
                 'H', MetaTileEntities.HULL[UHV].getStackForm(),
                 'G', new UnificationEntry(OrePrefix.gear, Duranium),
                 'S', new UnificationEntry(OrePrefix.gearSmall, Neutronium));
 
-        //Enhanced Rotor Holder (IV)
+        // Enhanced Rotor Holder (IV)
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(HULL[IV])
                 .input(OrePrefix.gear, HSSG, 8)
@@ -209,7 +207,7 @@ public class AHMTEMachineRecipeLoader {
                 .output(EFFICIENCY_ENHANCED_ROTOR_HOLDERS[0])
                 .EUt(VH[ZPM]).duration(1200).buildAndRegister();
 
-        //Enhanced Rotor Holder (LuV - UHV)
+        // Enhanced Rotor Holder (LuV - UHV)
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(HULL[LuV])
                 .input(OrePrefix.gear, Ruthenium, 8)
@@ -302,7 +300,7 @@ public class AHMTEMachineRecipeLoader {
                         .CWUt(512).EUt(VA[UV]))
                 .duration(1200).EUt(VA[UHV]).buildAndRegister();
 
-        //Advances Rotor Holder (IV)
+        // Advances Rotor Holder (IV)
         ASSEMBLER_RECIPES.recipeBuilder()
                 .input(HULL[IV])
                 .input(OrePrefix.gear, HSSG, 16)
@@ -313,7 +311,7 @@ public class AHMTEMachineRecipeLoader {
                 .output(ADVANCED_ROTOR_HOLDERS[0])
                 .duration(2400).EUt(VA[UV]).buildAndRegister();
 
-        //Advanced Rotor Holder (LuV - UHV)
+        // Advanced Rotor Holder (LuV - UHV)
         ASSEMBLY_LINE_RECIPES.recipeBuilder()
                 .input(HULL[LuV])
                 .input(OrePrefix.gear, Ruthenium, 16)

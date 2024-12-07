@@ -14,7 +14,4 @@ public class AHValuesConfigurable {
     public static boolean enabledParallel65536 = AHConfig.gcymCompat.enabledParallel65536;
     public static boolean enabledParallel262144 = AHConfig.gcymCompat.enabledParallel262144;
     public static boolean enabledParallel1048576 = AHConfig.gcymCompat.enabledParallel1048576;
-
-
 }
-
