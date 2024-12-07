@@ -16,13 +16,13 @@ import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
 
-public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch {
+public class MetaTileEntityMultiAmpEnergyHatch extends MetaTileEntityEnergyHatch {
 
     protected final boolean isExportHatch;
     protected final int amperage;
     protected final IEnergyContainer energyContainer;
 
-    public MetaTileEntityAdvancedEnergyHatch(ResourceLocation metaTileEntityId, int tier, int amperage,
+    public MetaTileEntityMultiAmpEnergyHatch(ResourceLocation metaTileEntityId, int tier, int amperage,
                                              boolean isExportHatch) {
         super(metaTileEntityId, tier, amperage, isExportHatch);
 
@@ -40,7 +40,7 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityAdvancedEnergyHatch(metaTileEntityId, getTier(), amperage, isExportHatch);
+        return new MetaTileEntityMultiAmpEnergyHatch(metaTileEntityId, getTier(), amperage, isExportHatch);
     }
 
     @Override
@@ -61,41 +61,53 @@ public class MetaTileEntityAdvancedEnergyHatch extends MetaTileEntityEnergyHatch
 
     @Override
     public void getSubItems(CreativeTabs creativeTab, NonNullList<ItemStack> subItems) {
-        if (this == AHMetaTileEntities.ENERGY_INPUT_64A[5]) {
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_4A_LOW) {
+        if (this == AHMetaTileEntities.ENERGY_INPUT_256A[0]) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_4A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_4A_HIGH) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_4A_HIGH) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_4A_LOW) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_4A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_4A_HIGH) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_4A_HIGH) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_16A_LOW) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_16A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_16A_HIGH) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_16A_HIGH) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_16A_LOW) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_16A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_16A_HIGH) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_16A_HIGH) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_64A) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_64A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_64A) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_64A) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_128A) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_64A_LOW) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
-            for (MetaTileEntityAdvancedEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_128A) {
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_64A) {
+                if (hatch != null) subItems.add(hatch.getStackForm());
+            }
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_256A_LOW) {
+                if (hatch != null) subItems.add(hatch.getStackForm());
+            }
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_INPUT_256A) {
+                if (hatch != null) subItems.add(hatch.getStackForm());
+            }
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_256A_LOW) {
+                if (hatch != null) subItems.add(hatch.getStackForm());
+            }
+            for (MetaTileEntityMultiAmpEnergyHatch hatch : AHMetaTileEntities.ENERGY_OUTPUT_256A) {
                 if (hatch != null) subItems.add(hatch.getStackForm());
             }
         }

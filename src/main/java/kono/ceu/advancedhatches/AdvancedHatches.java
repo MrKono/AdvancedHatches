@@ -9,9 +9,9 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Tags.MODID,
+@Mod(modid = AHValues.MODID,
         version = Tags.VERSION,
-        name = Tags.MODNAME,
+        name = AHValues.MODNAME,
         acceptedMinecraftVersions = "[1.12, 1.12.2]",
         dependencies = GTInternalTags.DEP_VERSION_STRING)
 

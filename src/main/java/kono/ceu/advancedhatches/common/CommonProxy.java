@@ -2,6 +2,7 @@ package kono.ceu.advancedhatches.common;
 
 import kono.ceu.advancedhatches.AdvancedHatchesLog;
 import kono.ceu.advancedhatches.api.util.AHValues;
+import kono.ceu.advancedhatches.api.util.Mods;
 import kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities;
 import kono.ceu.advancedhatches.loaders.AHERecipeManager;
 import net.minecraft.block.Block;

@@ -29,13 +29,13 @@ import java.util.Arrays;
 import static gregtech.api.capability.GregtechDataCodes.AMP_INDEX;
 import static gregtech.api.capability.GregtechDataCodes.SYNC_TILE_MODE;
 
-public class MetaTileEntityUltraTransformer extends MetaTileEntityTransformer {
+public class MetaTileEntityAdvancedTransformer extends MetaTileEntityTransformer {
 
     private final int[] highAmp;
     private boolean isTransformUp;
     private int ampIndex;
 
-    public MetaTileEntityUltraTransformer(ResourceLocation metaTileEntityId, int tier, int... highAmp) {
+    public MetaTileEntityAdvancedTransformer(ResourceLocation metaTileEntityId, int tier, int... highAmp) {
         super(metaTileEntityId, tier);
         if (highAmp == null || highAmp.length == 0) {
             this.highAmp = new int[] { 1 }; // fallback case, "normal" transformer
@@ -48,7 +48,7 @@ public class MetaTileEntityUltraTransformer extends MetaTileEntityTransformer {
 
     @Override
     public MetaTileEntity createMetaTileEntity(IGregTechTileEntity tileEntity) {
-        return new MetaTileEntityUltraTransformer(metaTileEntityId, getTier(), highAmp);
+        return new MetaTileEntityAdvancedTransformer(metaTileEntityId, getTier(), highAmp);
     }
 
     @Override
@@ -235,11 +235,11 @@ public class MetaTileEntityUltraTransformer extends MetaTileEntityTransformer {
 
     @Override
     public void getSubItems(CreativeTabs creativeTabs, NonNullList<ItemStack> subItems) {
-        if (this == AHMetaTileEntities.ULTRA_HI_AMP_TRANSFORMER[0]) {
-            for (MetaTileEntityUltraTransformer transformer : AHMetaTileEntities.ULTRA_HI_AMP_TRANSFORMER) {
+        if (this == AHMetaTileEntities.HI_POWER_TRANSFORMER[0]) {
+            for (MetaTileEntityAdvancedTransformer transformer : AHMetaTileEntities.HI_POWER_TRANSFORMER) {
                 if (transformer != null) subItems.add(transformer.getStackForm());
             }
-            for (MetaTileEntityUltraTransformer transformer : AHMetaTileEntities.ULTRA_POWER_TRANSFORMER) {
+            for (MetaTileEntityAdvancedTransformer transformer : AHMetaTileEntities.EXTREME_POWER_TRANSFORMER) {
                 if (transformer != null) subItems.add(transformer.getStackForm());
             }
         }

@@ -21,12 +21,10 @@ public class AHERecipeManager {
 
     public static void Load() {
         if (enabledLowTier) {
-            EnergyHatches4A();
-            EnergyHatches16A();
+            EnergyHatchesLow();
         }
-        EnergyHatches64and128A();
+        EnergyHatches();
         Transformers();
         RotorHolders();
-        if (ConfigHolder.compat.energy.enableFEConverters) Converter();
     }
 }

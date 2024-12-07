@@ -6,7 +6,6 @@ public class AHValuesConfigurable {
 
     // Boolean
     public static boolean enabledLowTier = AHConfig.EnergyHatchOption.enabledLowTierHatches;
-    public static boolean enabledHighTier = AHConfig.EnergyHatchOption.enabledHighTierHatches;
 
     public static boolean enabledHighVoltageUnit = AHConfig.gcymCompat.enabledHighVoltageUnit;
     public static boolean enabledParallel1024 = AHConfig.gcymCompat.enabledParallel1024;

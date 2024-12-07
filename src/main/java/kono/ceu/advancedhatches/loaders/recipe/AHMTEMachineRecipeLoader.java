@@ -10,7 +10,6 @@ import gregtech.common.metatileentities.MetaTileEntities;
 
 import static gregtech.api.GTValues.*;
 import static gregtech.api.unification.material.Materials.*;
-import static kono.ceu.advancedhatches.api.util.AHValuesConfigurable.enabledHighTier;
 import static kono.ceu.advancedhatches.common.metatileentities.AHMetaTileEntities.*;
 import static gregtech.api.recipes.RecipeMaps.*;
 import static gregtech.common.metatileentities.MetaTileEntities.*;
@@ -18,274 +17,144 @@ import static kono.ceu.advancedhatches.loaders.AHIngredientHelper.*;
 
 public class AHMTEMachineRecipeLoader {
 
-    public static void EnergyHatches4A() {
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(ENERGY_INPUT_HATCH[ULV])
-                .input(OrePrefix.wireGtQuadruple, voltagePartsMaterial(ULV), 2)
-                .input(OrePrefix.plate, voltageMaterial(ULV), 2)
-                .output(ENERGY_INPUT_4A_LOW[ULV])
-                .EUt(4).duration(200).buildAndRegister();
+    public static final int sec = 20;
+    public static final int min = 60 * sec;
 
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(ENERGY_OUTPUT_HATCH[ULV])
-                .input(OrePrefix.wireGtQuadruple, voltagePartsMaterial(ULV), 2)
-                .input(OrePrefix.plate, voltageMaterial(ULV), 2)
-                .output(ENERGY_OUTPUT_4A_LOW[ULV])
-                .EUt(4).duration(200).buildAndRegister();
-        for (int i = 1; i < ENERGY_INPUT_4A_LOW.length; i ++) {
+    public static void EnergyHatchesLow() {
+        // 4A and 16A: ULV-HV
+        for (int i = 0; i < 4; i++) {
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(ENERGY_INPUT_HATCH[i])
                     .input(OrePrefix.wireGtQuadruple, voltagePartsMaterial(i), 2)
                     .input(OrePrefix.plate, voltageMaterial(i), 2)
                     .output(ENERGY_INPUT_4A_LOW[i])
-                    .EUt(VA[i - 1]).duration(100).buildAndRegister();
+                    .EUt(VA[EV]).duration(5 * sec).buildAndRegister();
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(TRANSFORMER[i])
+                    .input(ENERGY_INPUT_4A_LOW[i])
+                    .input(OrePrefix.wireGtOctal, voltagePartsMaterial(i), 2)
+                    .input(OrePrefix.plate, voltageMaterial(i), 4)
+                    .output(ENERGY_INPUT_16A_LOW[i])
+                    .EUt(VA[EV]).duration(10 * sec).buildAndRegister();
+
 
             ASSEMBLER_RECIPES.recipeBuilder()
                     .input(ENERGY_OUTPUT_HATCH[i])
                     .input(OrePrefix.wireGtQuadruple, voltagePartsMaterial(i), 2)
                     .input(OrePrefix.plate, voltageMaterial(i), 2)
                     .output(ENERGY_OUTPUT_4A_LOW[i])
-                    .EUt(VA[i - 1]).duration(100).buildAndRegister();
-        }
-    }
-
-    public static void EnergyHatches16A() {
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(MetaTileEntities.TRANSFORMER[ULV])
-                .input(ENERGY_INPUT_4A_LOW[ULV])
-                .input(OrePrefix.wireGtOctal, voltagePartsMaterial(ULV), 2)
-                .input(OrePrefix.plate, voltageMaterial(ULV), 4)
-                .output(ENERGY_INPUT_16A_LOW[ULV])
-                .EUt(4).duration(200).buildAndRegister();
-
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(MetaTileEntities.TRANSFORMER[ULV])
-                .input(ENERGY_OUTPUT_4A_LOW[ULV])
-                .input(OrePrefix.wireGtOctal, voltagePartsMaterial(ULV), 2)
-                .input(OrePrefix.plate, voltageMaterial(ULV), 4)
-                .output(ENERGY_OUTPUT_16A_LOW[ULV])
-                .EUt(4).duration(200).buildAndRegister();
-
-        for (int i = 1; i < ENERGY_INPUT_16A_LOW.length - 1; i++) {
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(MetaTileEntities.TRANSFORMER[i])
-                    .input(ENERGY_INPUT_4A_LOW[i])
-                    .input(OrePrefix.wireGtOctal, voltagePartsMaterial(i), 2)
-                    .input(OrePrefix.plate, voltageMaterial(i), 4)
-                    .output(ENERGY_INPUT_16A_LOW[i])
-                    .EUt(VA[i - 1]).duration(200).buildAndRegister();
+                    .EUt(VA[EV]).duration(5 * sec).buildAndRegister();
 
             ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(MetaTileEntities.TRANSFORMER[i])
+                    .input(TRANSFORMER[i])
                     .input(ENERGY_OUTPUT_4A_LOW[i])
                     .input(OrePrefix.wireGtOctal, voltagePartsMaterial(i), 2)
                     .input(OrePrefix.plate, voltageMaterial(i), 4)
                     .output(ENERGY_OUTPUT_16A_LOW[i])
-                    .EUt(VA[i - 1]).duration(200).buildAndRegister();
+                    .EUt(VA[EV]).duration(10 * sec).buildAndRegister();
         }
+        // 64A: ULV-EV
+        for (int i = 0; i < 5; i++) {
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HI_AMP_TRANSFORMER[i])
+                    .input(ENERGY_INPUT_16A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
+                    .input(OrePrefix.plate, voltageMaterial(i), 6)
+                    .output(ENERGY_INPUT_64A_LOW[i])
+                    .EUt(VA[EV]).duration(20 * sec).buildAndRegister();
+            
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HI_AMP_TRANSFORMER[i])
+                    .input(ENERGY_OUTPUT_16A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
+                    .input(OrePrefix.plate, voltageMaterial(i), 6)
+                    .output(ENERGY_OUTPUT_64A_LOW[i])
+                    .EUt(VA[EV]).duration(20 * sec).buildAndRegister();
+        }
+        // 256A and 1024A: ULV-IV
+        for (int i= 0; i < 6; i++) {
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HI_POWER_TRANSFORMER[i])
+                    .input(i == 5 ? ENERGY_INPUT_64A[0] : ENERGY_INPUT_64A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
+                    .input(OrePrefix.plate, voltageMaterial(i), 8)
+                    .output(ENERGY_INPUT_256A_LOW[i])
+                    .EUt(VA[EV]).duration(40 * sec).buildAndRegister();
 
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(MetaTileEntities.TRANSFORMER[EV])
-                .input(ENERGY_INPUT_HATCH_4A[0])
-                .input(OrePrefix.wireGtOctal, voltagePartsMaterial(EV), 2)
-                .input(OrePrefix.plate, voltageMaterial(EV), 4)
-                .output(ENERGY_INPUT_16A_LOW[EV])
-                .EUt(VA[EV - 1]).duration(200).buildAndRegister();
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(HI_POWER_TRANSFORMER[i])
+                    .input(i == 5 ? ENERGY_OUTPUT_64A[0] : ENERGY_OUTPUT_64A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
+                    .input(OrePrefix.plate, voltageMaterial(i), 8)
+                    .output(ENERGY_OUTPUT_256A_LOW[i])
+                    .EUt(VA[EV]).duration(40 * sec).buildAndRegister();
 
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(MetaTileEntities.TRANSFORMER[EV])
-                .input(ENERGY_OUTPUT_HATCH_4A[0])
-                .input(OrePrefix.wireGtOctal, voltagePartsMaterial(EV), 2)
-                .input(OrePrefix.plate, voltageMaterial(EV), 4)
-                .output(ENERGY_OUTPUT_16A_LOW[EV])
-                .EUt(VA[EV - 1]).duration(200).buildAndRegister();
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(EXTREME_POWER_TRANSFORMER[i])
+                    .input(ENERGY_INPUT_256A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 16)
+                    .input(OrePrefix.plate, voltageMaterial(i), 10)
+                    .output(SUBSTATION_ENERGY_INPUT_102A_LOW[i])
+                    .EUt(VA[EV]).duration(80 * sec).buildAndRegister();
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(EXTREME_POWER_TRANSFORMER[i])
+                    .input(ENERGY_OUTPUT_256A_LOW[i])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 16)
+                    .input(OrePrefix.plate, voltageMaterial(i), 10)
+                    .output(SUBSTATION_ENERGY_OUTPUT_1024A_LOW[i])
+                    .EUt(VA[EV]).duration(80 * sec).buildAndRegister();
+        }
     }
 
-    public static void EnergyHatches64and128A() {
-        //64A
-        if (enabledHighTier) {
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(POWER_TRANSFORMER[ULV])
-                    .input(ENERGY_INPUT_16A_LOW[ULV])
-                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(ULV), 2)
-                    .input(OrePrefix.plateDouble, voltagePartsMaterial(ULV), 4)
-                    .input(VoltageCoil(ULV), 2)
-                    .input(PICs(ULV), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(2000))
-                    .output(ENERGY_INPUT_64A[ULV])
-                    .EUt(4).duration(400).buildAndRegister();
-
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(POWER_TRANSFORMER[ULV])
-                    .input(ENERGY_OUTPUT_16A_LOW[ULV])
-                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(ULV), 2)
-                    .input(OrePrefix.plateDouble, voltageMaterial(ULV), 4)
-                    .input(VoltageCoil(ULV), 2)
-                    .input(PICs(ULV), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(2000))
-                    .output(ENERGY_OUTPUT_64A[ULV])
-                    .EUt(4).duration(400).buildAndRegister();
-
-            for (int i = 1; i < GTValues.IV; i++) {
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(POWER_TRANSFORMER[i])
-                        .input(ENERGY_INPUT_16A_LOW[i])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 4)
-                        .input(VoltageCoil(i), 2)
-                        .input(PICs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(2000))
-                        .output(ENERGY_INPUT_64A[i])
-                        .EUt(VA[i - 1]).duration(400).buildAndRegister();
-
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(POWER_TRANSFORMER[i])
-                        .input(ENERGY_OUTPUT_16A_LOW[i])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 4)
-                        .input(VoltageCoil(i), 2)
-                        .input(PICs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(2000))
-                        .output(ENERGY_OUTPUT_64A[i])
-                        .EUt(VA[i - 1]).duration(400).buildAndRegister();
-            }
+    public static void EnergyHatches() {
+        // 64A: IV-UHV
+        for (int i = IV; i < UHV + 1; i++) {
+            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase()+ "_64a_energy_hatch",
+                    ENERGY_INPUT_64A[i - 5].getStackForm(), SUBSTATION_ENERGY_INPUT_HATCH[i - 5].getStackForm());
+            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase()+ "_64a_dynamo_hatch",
+                    ENERGY_OUTPUT_64A[i - 5].getStackForm(), SUBSTATION_ENERGY_OUTPUT_HATCH[i - 5].getStackForm());
+            ModHandler.addShapelessRecipe("convert_to_" + GTValues.VN[i].toLowerCase()+ "_64a_substation_energy_hatch",
+                    SUBSTATION_ENERGY_INPUT_HATCH[i - 5].getStackForm(), ENERGY_INPUT_64A[i - 5].getStackForm());
+            ModHandler.addShapelessRecipe("convert_" + GTValues.VN[i].toLowerCase()+ "_64a_substation_dynamo_hatch",
+                    SUBSTATION_ENERGY_OUTPUT_HATCH[i - 5].getStackForm(), ENERGY_OUTPUT_64A[i - 5].getStackForm());
         }
-        for (int i = GTValues.IV; i <= GTValues.UV; i++) {
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(POWER_TRANSFORMER[i])
-                        .input(ENERGY_INPUT_HATCH_16A[i - GTValues.IV])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 4)
-                        .input(VoltageCoil(i), 2)
-                        .input(PICs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(2000))
-                        .output(ENERGY_INPUT_64A[i])
-                        .EUt(VA[i - 1]).duration(400).buildAndRegister();
 
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(POWER_TRANSFORMER[i])
-                        .input(ENERGY_OUTPUT_HATCH_16A[i - GTValues.IV])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 2)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 4)
-                        .input(VoltageCoil(i), 2)
-                        .input(PICs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(2000))
-                        .output(ENERGY_OUTPUT_64A[i])
-                        .EUt(VA[i - 1]).duration(400).buildAndRegister();
-            }
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(POWER_TRANSFORMER[UV])
-                .input(ENERGY_INPUT_HATCH_16A[GTValues.UHV - GTValues.IV])
-                .input(OrePrefix.wireGtHex, voltagePartsMaterial(UHV), 2)
-                .input(OrePrefix.plateDouble, voltageMaterial(UHV), 4)
-                .input(VoltageCoil(UHV), 2)
-                .input(PICs(UHV), 4)
-                .fluidInputs(SodiumPotassium.getFluid(2000))
-                .output(ENERGY_INPUT_64A[UHV])
-                .EUt(VA[UHV - 1]).duration(400).buildAndRegister();
-
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(POWER_TRANSFORMER[UV])
-                .input(ENERGY_OUTPUT_HATCH_16A[GTValues.UHV - GTValues.IV])
-                .input(OrePrefix.wireGtHex, voltagePartsMaterial(UHV), 2)
-                .input(OrePrefix.plateDouble, voltageMaterial(UHV), 4)
-                .input(VoltageCoil(UHV), 2)
-                .input(PICs(UHV), 4)
-                .fluidInputs(SodiumPotassium.getFluid(2000))
-                .output(ENERGY_OUTPUT_64A[UHV])
-                .EUt(VA[UHV - 1]).duration(400).buildAndRegister();
-        //128A
-        if (enabledHighTier) {
+        // 256A and 1024A: LuV-UHV
+        for (int i = LuV; i < UHV + 1; i++) {
             ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(ULTRA_HI_AMP_TRANSFORMER[ULV])
-                    .input(ENERGY_INPUT_64A[ULV])
-                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(ULV), 4)
-                    .input(OrePrefix.plateDouble, voltageMaterial(ULV), 8)
-                    .input(VoltageCoil(ULV), 8)
-                    .input(PICWs(ULV), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(4000))
-                    .output(ENERGY_INPUT_128A[ULV])
-                    .EUt(4).duration(1600).buildAndRegister();
-
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(ULTRA_HI_AMP_TRANSFORMER[ULV])
-                    .input(ENERGY_OUTPUT_64A[ULV])
-                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(ULV), 4)
-                    .input(OrePrefix.plateDouble, voltageMaterial(ULV), 8)
-                    .input(VoltageCoil(ULV), 8)
-                    .input(PICWs(ULV), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(4000))
-                    .output(ENERGY_OUTPUT_128A[ULV])
-                    .EUt(4).duration(1600).buildAndRegister();
-
-            for (int i = 1; i < GTValues.IV; i++) {
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(ULTRA_HI_AMP_TRANSFORMER[i])
-                        .input(ENERGY_INPUT_64A[i])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 8)
-                        .input(VoltageCoil(i), 8)
-                        .input(PICWs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(4000))
-                        .output(ENERGY_INPUT_128A[i])
-                        .EUt(VA[i - 1]).duration(1600).buildAndRegister();
-
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(ULTRA_HI_AMP_TRANSFORMER[i])
-                        .input(ENERGY_OUTPUT_64A[i])
-                        .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
-                        .input(OrePrefix.plateDouble, voltageMaterial(i), 8)
-                        .input(VoltageCoil(i), 8)
-                        .input(PICWs(i), 4)
-                        .fluidInputs(SodiumPotassium.getFluid(4000))
-                        .output(ENERGY_OUTPUT_128A[i])
-                        .EUt(VA[i - 1]).duration(1600).buildAndRegister();
-            }
-        }
-        for (int i = GTValues.IV; i <= GTValues.UV; i++) {
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(ULTRA_HI_AMP_TRANSFORMER[i])
-                    .input(ENERGY_INPUT_64A[i])
+                    .input(HI_POWER_TRANSFORMER[i])
+                    .input(ENERGY_INPUT_64A[i - 6])
                     .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
-                    .input(OrePrefix.plateDouble, voltageMaterial(i), 8)
-                    .input(VoltageCoil(i), 8)
-                    .input(PICWs(i), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(4000))
-                    .output(ENERGY_INPUT_128A[i])
-                    .EUt(VA[i - 1]).duration(1600).buildAndRegister();
+                    .input(OrePrefix.plate, voltageMaterial(i), 8)
+                    .output(ENERGY_INPUT_256A[i - 6])
+                    .EUt(VA[EV]).duration(40 * sec).buildAndRegister();
 
             ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(ULTRA_HI_AMP_TRANSFORMER[i])
-                    .input(ENERGY_OUTPUT_64A[i])
+                    .input(HI_POWER_TRANSFORMER[i])
+                    .input(ENERGY_OUTPUT_64A[i - 6])
                     .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 4)
-                    .input(OrePrefix.plateDouble, voltageMaterial(i), 8)
-                    .input(VoltageCoil(i), 8)
-                    .input(PICWs(i), 4)
-                    .fluidInputs(SodiumPotassium.getFluid(4000))
-                    .output(ENERGY_OUTPUT_128A[i])
-                    .EUt(VA[i - 1]).duration(1600).buildAndRegister();
-        }
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(ULTRA_HI_AMP_TRANSFORMER[UV])
-                .input(ENERGY_INPUT_64A[UHV])
-                .input(OrePrefix.wireGtHex, voltagePartsMaterial(UHV), 4)
-                .input(OrePrefix.plateDouble, voltageMaterial(UHV), 8)
-                .input(VoltageCoil(UHV), 8)
-                .input(PICWs(UHV), 4)
-                .fluidInputs(SodiumPotassium.getFluid(4000))
-                .output(ENERGY_INPUT_128A[UHV])
-                .EUt(VA[UHV - 1]).duration(1600).buildAndRegister();
+                    .input(OrePrefix.plate, voltageMaterial(i), 8)
+                    .output(ENERGY_OUTPUT_256A[i - 6])
+                    .EUt(VA[EV]).duration(40 * sec).buildAndRegister();
 
-        ASSEMBLER_RECIPES.recipeBuilder()
-                .input(ULTRA_HI_AMP_TRANSFORMER[UV])
-                .input(ENERGY_OUTPUT_64A[UHV])
-                .input(OrePrefix.wireGtHex, voltagePartsMaterial(UHV), 4)
-                .input(OrePrefix.plateDouble, voltageMaterial(UHV), 8)
-                .input(VoltageCoil(UHV), 8)
-                .input(PICWs(UHV), 4)
-                .fluidInputs(SodiumPotassium.getFluid(4000))
-                .output(ENERGY_OUTPUT_128A[UHV])
-                .EUt(VA[UHV - 1]).duration(1600).buildAndRegister();
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(EXTREME_POWER_TRANSFORMER[i])
+                    .input(ENERGY_INPUT_256A[i - 6])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 16)
+                    .input(OrePrefix.plate, voltageMaterial(i), 10)
+                    .output(SUBSTATION_ENERGY_INPUT_1024A[i - 6])
+                    .EUt(VA[EV]).duration(80 * sec).buildAndRegister();
+
+            ASSEMBLER_RECIPES.recipeBuilder()
+                    .input(EXTREME_POWER_TRANSFORMER[i])
+                    .input(ENERGY_OUTPUT_256A[i - 6])
+                    .input(OrePrefix.wireGtHex, voltagePartsMaterial(i), 16)
+                    .input(OrePrefix.plate, voltageMaterial(i), 10)
+                    .output(SUBSTATION_ENERGY_OUTPUT_1024A[i - 6])
+                    .EUt(VA[EV]).duration(80 * sec).buildAndRegister();
+        }
     }
 
     public static void Transformers() {
@@ -298,61 +167,19 @@ public class AHMTEMachineRecipeLoader {
                     .input(OrePrefix.springSmall, voltagePartsMaterial(i), 4)
                     .input(OrePrefix.spring, voltagePartsMaterial(i + 1), 4)
                     .fluidInputs(Lubricant.getFluid(8000))
-                    .output(ULTRA_HI_AMP_TRANSFORMER[i])
+                    .output(HI_POWER_TRANSFORMER[i])
                     .EUt(VA[i]).duration(800).buildAndRegister();
 
             ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(ULTRA_HI_AMP_TRANSFORMER[i])
+                    .input(HI_POWER_TRANSFORMER[i])
                     .input(Pump(i))
                     .input(OrePrefix.cableGtOctal, voltagePartsMaterial(i + 1), 16)
                     .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 32)
                     .input(OrePrefix.springSmall, voltagePartsMaterial(i), 16)
                     .input(OrePrefix.spring, voltagePartsMaterial(i + 1), 16)
                     .fluidInputs(Lubricant.getFluid(32000))
-                    .output(ULTRA_POWER_TRANSFORMER[i])
+                    .output(EXTREME_POWER_TRANSFORMER[i])
                     .EUt(VA[i]).duration(3200).buildAndRegister();
-        }
-    }
-
-    public static void Converter() {
-        for (int i = 0; i < HI_AMP_CONVERTER[0].length; i++) {
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(HULL[i])
-                    .input(OrePrefix.cableGtHex, RedAlloy, 2)
-                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 8)
-                    .input(OrePrefix.circuit, tier(i), 1)
-                    .circuitMeta(0)
-                    .output(HI_AMP_CONVERTER[0][i])
-                    .EUt(VA[i]).duration(200).buildAndRegister();
-
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(HULL[i])
-                    .input(OrePrefix.cableGtHex, RedAlloy, 4)
-                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 16)
-                    .input(OrePrefix.circuit, tier(i), 2)
-                    .circuitMeta(1)
-                    .output(HI_AMP_CONVERTER[1][i])
-                    .EUt(VA[i]).duration(2 * 200).buildAndRegister();
-
-            ASSEMBLER_RECIPES.recipeBuilder()
-                    .input(HULL[i])
-                    .input(OrePrefix.cableGtHex, RedAlloy, 8)
-                    .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 32)
-                    .input(OrePrefix.circuit, tier(i), 4)
-                    .circuitMeta(2)
-                    .output(HI_AMP_CONVERTER[2][i])
-                    .EUt(VA[i]).duration(4 * 200).buildAndRegister();
-
-            if (i < HI_AMP_CONVERTER[0].length - 1) {
-                ASSEMBLER_RECIPES.recipeBuilder()
-                        .input(HULL[i])
-                        .input(OrePrefix.cableGtHex, RedAlloy, 16)
-                        .input(OrePrefix.cableGtHex, voltagePartsMaterial(i), 64)
-                        .input(OrePrefix.circuit, tier(i), 8)
-                        .circuitMeta(3)
-                        .output(HI_AMP_CONVERTER[3][i])
-                        .EUt(VA[i]).duration(8 * 200).buildAndRegister();
-            }
         }
     }
 

@@ -12,6 +12,10 @@ public class AHConfig {
     public static
      */
 
+    @Config.Name("MTE ID Option")
+    @Config.RequiresMcRestart
+    public static IDOptions Id = new IDOptions();
+
     @Config.Comment("Config options for High Amp Energy Hatches")
     @Config.Name("High Amp Hatch Option")
     @Config.RequiresMcRestart
@@ -22,12 +26,18 @@ public class AHConfig {
     @Config.RequiresMcRestart
     public static gcymCompat gcymCompat = new gcymCompat();
 
-    public static class EnergyHatchOptions {
-        @Config.Comment({"Whether to enable the ULV - EV Tier Energy Hatch", "Default: false"})
-        public boolean enabledLowTierHatches = false;
+    public static class IDOptions {
+        @Config.Comment({"Change the starting ID of the MetaTileEntityID used by this add-on.",
+                "By Default, this add-on uses MetaTileEntityIDs of 25000-26999.",
+                "Only change this if the crash is caused by a duplicate MTEIDs.",
+                "WARNING: If you change it, the one already created will disappear or be changed to another one."})
+        public int startId = 25000;
+    }
 
-        @Config.Comment({"Whether to enable the HEV+ Tier Energy Hatch", "If \"highTierContent\" is true, this setting is ignored.", "Default: false"})
-        public boolean enabledHighTierHatches = false;
+    public static class EnergyHatchOptions {
+        @Config.Comment({"Whether to enable the Low Tier Energy Hatch", "Default: false",
+        "4A: ULV-HV, 16A: ULV-EV, 64A: ULV-EV, 128A: ULV-IV"})
+        public boolean enabledLowTierHatches = false;
     }
 
     public static class gcymCompat {

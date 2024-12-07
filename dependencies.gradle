@@ -28,6 +28,7 @@ dependencies {
     devOnlyNonPublishable(rfg.deobf("curse.maven:gregicality-multiblocks-564858:5619513")) // GCYM 1.2.11
 
     if(project.rf_module) {
+        runtimeOnlyNonPublishable (files("libs/EnderCore-1.12.2-0.5.78-core.jar"))
         runtimeOnlyNonPublishable "info.loenwind.autoconfig:AutoConfig:1.12.2-1.0.2" // AutoConfig 1.0.2
         runtimeOnlyNonPublishable "info.loenwind.autosave:AutoSave:1.12.2-1.0.11" // AutoSave 1.0.11
         runtimeOnlyNonPublishable rfg.deobf("curse.maven:endercore-231868:4671384") // EnderCore 0.5.78
